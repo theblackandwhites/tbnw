@@ -1,0 +1,31 @@
+<div class="projects-4" id="projects-4">
+  <div class="container">
+    <% if user_signed_in? %>
+    <%= render 'workshops/member_index' %>
+    <% else %>
+    <%= render 'workshops/guest_index' %>
+    <% end %>
+
+    <div class="row">
+      <% @workshops.drop(1).take(9).each do |workshop| %>
+
+        <div class="col-md-4">
+          <div class="card card-plain">
+            <div class="card-image">
+              <div style="background-color:#e91e63; padding:5px; color: #fff; text-align: center; border-radius: 5px; margin: 10px 0 0 10px; position: absolute; z-index: 2;">  Workshop #<%= workshop.id %></div>
+
+              <div style="background-color:#e91e63; padding:5px; color: #fff; text-align: center; border-radius: 5px; right: 10px; bottom:10px; position: absolute; z-index: 2;">Starts in <%= pluralize((workshop.start_date - DateTime.now ).to_i, 'day')  %></div>
+
+              
+              <img src="http://www.eyewithwings.net/nechvatal/Post-Photography/From%20Photography_files/image060.gif" />
+            </div>
+            <div class="card-content">
+                <h4 class="card-title pull-left"><%= workshop.start_date.strftime("%B %d, %Y") %></h4>
+                <h4 class="card-title pull-right" style="color:#e91e63;"> @ <%= workshop.start_time %></h4>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

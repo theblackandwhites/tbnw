@@ -1,0 +1,16 @@
+<div class="media">
+<span class="pull-left author">
+	<div class="avatar-sm">
+	<% if message.user.avatar? %>
+	  <%= cl_image_tag(message.user.avatar.path, { size: '250x250', crop: :thumb, gravity: :face }) %>
+	<% else %>
+	  <%= cl_image_tag("bnw/assets/84238.jpg") %>
+	<% end %>
+	</div>
+</span>
+	<div class="media-body">
+		<h4 class="media-heading" style="line-height: 18px"><%= message.user.first_name %> <%= message.user.last_name %><br /><span style="font-size: 11px"><%= time_ago_in_words(message.created_at) %> ago</span></h4>
+		<%= message.body %>
+	</div>
+</div>
+<hr>

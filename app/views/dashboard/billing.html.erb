@@ -1,0 +1,56 @@
+ <%= render 'dashboard/header' %>
+
+
+<div class="col-md-5">
+
+    <h3>Billing Settings</h3>
+	<h5>The current credit card details we have for you are:</h5>
+	<% if current_user.credit_card_type == "Visa" %>
+	<img src="http://res.cloudinary.com/theblackandwhites/image/upload/v1497409130/bnw/assets/visa.png" alt="visa" align="left" width="50">
+	<% end %>
+
+	<% if current_user.credit_card_type == "MasterCard" %>
+	<img src="http://res.cloudinary.com/theblackandwhites/image/upload/v1497409130/bnw/assets/mastercard.png" alt="mastercard" align="left" width="50">
+	<% end %>
+
+	<% if current_user.credit_card_type == "American Express" %>
+	<img src="http://res.cloudinary.com/theblackandwhites/image/upload/v1497409130/bnw/assets/amex.png" alt="mastercard" align="left" width="50">
+	<% end %>
+	
+
+	&nbsp;&nbsp;&nbsp;&nbsp;&#9679;&nbsp;&#9679;&nbsp;&#9679;&nbsp;&#9679;&nbsp;&nbsp;&#9679;&nbsp;&#9679;&nbsp;&#9679;&nbsp;&#9679;&nbsp;&nbsp;&#9679;&nbsp;&#9679;&nbsp;&#9679;&nbsp;&#9679;&nbsp;&nbsp; <span style=" font-size: 18px;"><%= current_user.credit_card_last_4 %> &nbsp;&nbsp;&nbsp; <%= current_user.credit_card_exp_month %> / <%= current_user.credit_card_exp_year %></span>
+    
+	<div style="margin-top:80px;">
+    	<h4>Would you like to update your card details?</h4>
+    	<%= form_tag update_billing_path, :method => :post, :id => 'payment-form'  do %>
+		  <script
+		  src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+		  data-key="pk_test_pgjXdb0iF1FibeSRlx8qsXBv"
+		  data-name="The Black &amp; Whites"
+		  data-panel-label="Update Card Details"
+		  data-label="Update Card Details"
+		  data-email = <%= current_user.email %>
+		  data-allow-remember-me=false
+		  data-locale="auto">
+		  </script>
+		<% end %>
+
+    </div>
+
+    <div style="margin-top:80px;">
+    	<div>
+        <h4>Cancel at anytime.</h4>
+        <p class="description" style="font-size: 12px;">If for some reason you find that The Black &amp; Whites just isn't for you, simply click the link below and we'll remove your account and all of your details that go with it immediately.</p>
+        <p><%= button_to "Cancel my account", remove_me_path, data: { confirm: "Are you sure you want to leave us?" }, class: "btn btn-danger" %></p>
+      </div>
+    </div>
+</div>
+
+ <%= render 'dashboard/footer' %>    
+ 
+
+
+
+
+
+

@@ -1,0 +1,54 @@
+<div class="projects-4" id="projects-4">
+  <div class="container">
+
+    <div class="row">
+      <div class="col-md-6" style="padding-top:0px;">
+    
+         
+         <style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src="https://player.vimeo.com/video/221125317" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>
+
+ 
+        
+      </div>
+      <div class="col-md-6">
+        <h2 class="title">Video Hacks help you tackle the practical side of marketing </h2>
+        <h5 class="description">Think of The Black &amp; Whites as an investment in you. This way, you'll learn everything you need to consistantly harness the true power of marketing. We release new video hacks every week, showing you how to quickly and effectively plan, build and execute those task that would usually be outsourced to a third party. With these new skills under your belt, nothing can stop you.</h5>
+        <div class="section-space"></div>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <!-- Tabs on Plain Card -->
+      <div class="card card-nav-tabs card-plain">
+        <div class="header header-rose">
+          <!-- colors: "header-primary", "header-info", "header-success", "header-warning", "header-danger" -->
+          <div class="nav-tabs-navigation">
+            <div class="nav-tabs-wrapper">
+              <ul class="nav nav-tabs" data-tabs="tabs">
+                <li class="active"><a href="#all" data-toggle="tab">All New Video Hacks</a></li>
+                <li class="active pull-right"><a href="#">STAY TUNED - NEW VIDEOS ARE ADDED WEEKLY!</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="card-content">
+          <div class="tab-content text-center">
+            <div class="tab-pane active" id="all">
+            <% @hacks.each do |hack|%>
+              <%= render 'hacks/hack_cards', :hack => hack %>
+            <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End Tabs on plain Card -->
+    </div>
+
+
+    
+
+
+
+
+    </div>
+</div>

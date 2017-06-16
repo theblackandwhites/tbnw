@@ -1,0 +1,48 @@
+<div class="col-md-3">
+  <div class="card card-blog card-rotate">
+    
+    <div class="rotating-card-container">
+      <div class="card-image">
+        <div class="front">
+          <img class="img" src="<%= hack.thumb %>"/>
+        </div>
+
+        <div class="back back-background" style="background-image: url('<%= hack.thumb %>');">
+          <div class="card-content">
+            <h5 class="card-title">
+              <i class="material-icons" style="font-size: 90px;">play_circle_outline</i>
+              </h5>
+            <div class="footer text-center">
+              <% if hack.members_only == true %>
+                <% if user_signed_in? %>
+                  <%= link_to "Watch Video", hack_path(hack), class: "btn btn-round btn-success" %>
+                <% else %>
+                  <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-round btn-rose" %>
+                <% end %>
+              <% else %>
+                <%= link_to "Watch Video", hack_path(hack), class: "btn btn-round btn-success" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-content">
+      <h4 class="card-title">
+        <% if hack.members_only == true %>
+          <% if user_signed_in? %>
+            <%= link_to hack.title, hack_path(hack) %>
+          <% else %>
+            <%= hack.title %>
+          <% end %>
+        <% else %>
+          <%= link_to hack.title, hack_path(hack) %>
+        <% end %>
+      </h4>
+      <p class="card-description">
+        <%= hack.description %>
+      </p>
+    </div>
+  </div>
+</div>

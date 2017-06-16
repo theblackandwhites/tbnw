@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body bgcolor="#e5e5e5">
+	<table bgcolor="#e5e5e5" width="100%">
+		<tr>
+			<td>
+			<div style="width:600px; margin:auto; background-color: #fff; padding: 40px; border-radius: 10px; padding: 20px;">
+				<table width="600" style="width:600px; margin:auto; background-color: #fff; padding: 40px; border-radius: 10px;">
+					<tr>
+						<td>
+							<table>
+								<tr>
+									<td><h1>Hi <%= @commentor.first_name %>,</h1></td>
+								</tr>
+								<tr>
+									<td><p style="font-size: 16px;">Someone has replied to your response left at hack video:</p>
+									<%= link_to @hack.title,  hack_url(@hack), style: "font-size: 20px; font-weight:bold; color: #337ab7; text-decoration: none;" %>
+									<p style="color: #aaa;"><strong>Your Comment:</strong> <br /><%= @comment.body %></p>
+									</td>
+								</tr>
+							</table>
+
+							<div style="margin-top: 20px; margin-bottom: 20px; width: 100%; border-top: 1px solid #e5e5e5">
+								<table cellpadding="10">
+									<tr>
+										<td>
+							    			<strong>Reply by:</strong> <%= @replyer.first_name %> <%= @replyer.last_name %><br />
+							    			<strong>Reply:</strong><br /> 
+							    			<%= @reply.body %>
+							    		</td>
+									</tr>
+	
+								</table>
+							</div>
+
+							<div style="margin-top: 40px;">
+								<table>
+									<tr>
+									<td>
+						    			<%= link_to "View Hack Video",  hack_url(@hack), style: "width: 250px; background-color: #5cb85c; padding:20px 40px; color: #fff; font-weight: bold; border-radius: 10px; margin-top: 20px; text-decoration:none; font-size:20px;" %>
+						    		</td>
+								</tr>
+								</table>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</div>
+			</td>
+		</tr>
+	</table>
+  </body>
+</html>

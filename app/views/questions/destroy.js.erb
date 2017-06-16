@@ -1,0 +1,7 @@
+$('.delete_question').bind('ajax:success', function() {  
+        $(this).closest('.question-parent').fadeOut();
+});  
+
+$('.delete_question_2').bind('ajax:success', function() {  
+        $(this).closest('tr').fadeOut();
+});  

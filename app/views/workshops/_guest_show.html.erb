@@ -1,0 +1,126 @@
+<div class="container">
+	<div class="row" style="margin-top: 60px;">
+		<div class="col-md-8">
+			<% if @workshop.start_date - DateTime.now > 1 %>
+			<h4 style="font-weight: bold;"><span style="color:#5bb75b;">Wingman workshop #<%= @workshop.id%></span> is starting in <span style="color:#5bb75b;"><%= pluralize((@workshop.start_date - DateTime.now ).to_i, 'day')  %></span></h4>
+			<% end %>
+			<div class="main main-raised" style="padding: 20px; margin: 0; background-color: #000;">
+			<div class="videoWrapper" style="border-radius: 10px;">
+			<iframe width="1024" height="720" src="https://www.youtube.com/embed/live_stream?channel=UCm4lWj4W-0JWgq3QrJsRL8g&autoplay=1" frameborder="0" allowfullscreen></iframe>
+			</div>
+			</div>
+
+			<div class="main main-raised" style="padding: 20px; margin: 10px 0;">
+				<h3 class="title" style="">Hi, down here!</h3>
+                <div class="media media-post">
+	                
+				    <h5>If you decide to join us, this is where you'll get to participate in our wingman workshops... did I mention you can try it out for just $1. Anyway, once you log in you'll unlock this section so that you can start asking any questions you might have. You can watch me in the screen above, while I try to answer your questions.. Pretty cool huh!</h5>
+				</div> <!-- end media-post -->
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="main main-raised" style="padding: 20px; margin: 0; overflow-y: scroll; height:600px;">
+				
+				<div class="media">
+					<div class="media-body">
+						<h4 class="media-heading">Josh Edgar</h4>
+						All of your questions appear here in instantly.
+					</div>
+				</div>
+				<hr>
+
+				<div class="media">
+					<div class="media-body">
+						<h4 class="media-heading">Josh Edgar</h4>
+						We try to answer all questions. But if we don't get around to yours during this workshop, we will do our best to reply to your question via phone or email.
+					</div>
+				</div>
+				<hr>
+
+				<div class="media">
+					<div class="media-body">
+						<h4 class="media-heading">Josh Edgar</h4>
+						I can't wait to show you how you can unlock the power of marketing.
+					</div>
+				</div>
+				<hr>
+
+				<div class="media">
+					<div class="media-body">
+						<h4 class="media-heading">Josh Edgar</h4>
+						You're seriously going to flip out. You'll wonder why people are always freaking out about their business and why it's not working the way it should.
+					</div>
+				</div>
+				<hr>
+
+				<div class="media">
+					<div class="media-body">
+						<h4 class="media-heading">Josh Edgar</h4>
+						Truth is marketing is easy, you just need that helping hand and sometimes a little guidance and reassurance.
+					</div>
+				</div>
+				<hr>
+
+				<div class="media">
+					<div class="media-body">
+						<h4 class="media-heading">Josh Edgar</h4>
+						I know we can smash it together.
+					</div>
+				</div>
+				<hr>
+
+				<div class="media">
+					<div class="media-body">
+						<h4 class="media-heading">Josh Edgar</h4>
+						So, what's for dinner?
+					</div>
+				</div>
+				<hr>
+
+				<div class="media">
+					<div class="media-body">
+						<h4 class="media-heading">Josh Edgar</h4>
+						It's getting cold now isn't it?
+					</div>
+				</div>
+				<hr>
+
+				<div class="media">
+					<div class="media-body">
+						<h4 class="media-heading">Josh Edgar</h4>
+						Maybe lasagne? or somekind of stew?
+					</div>
+				</div>
+				<hr>
+
+				<div class="media">
+					<div class="media-body">
+						<h4 class="media-heading">Josh Edgar</h4>
+						Ok, I have to go, by the way if you're reading this you should probably go ahead and sign up. I think you'll enjoy it. I'll make it easy for you...
+					</div>
+				</div>
+				<hr>
+
+								<div class="media">
+					<div class="media-body">
+						<h4 class="media-heading">Josh Edgar</h4>
+						Now where did I put it... Oh here it is. <%= link_to "Try Now - Just $1", new_user_registration_path, class: "btn btn-round btn-block btn-rose" %> 
+					</div>
+				</div>
+				<hr>
+
+		</div>
+	</div>
+</div>
+
+<script>
+	$('textarea').keyup(updateCount);
+	$('textarea').keydown(updateCount);
+
+	function updateCount() {
+	    var cs = $(this).val().length;
+	    $('#characters').text(cs + "/125");
+	}
+
+</script>
+	

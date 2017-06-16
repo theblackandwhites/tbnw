@@ -1,0 +1,60 @@
+<div class="container">
+	<div class="row" style="margin-top: 60px;">
+		<div class="col-md-8">
+			<% if DateTime.now - @workshop.start_date > 1 %>
+			<h4 style="font-weight: bold;"><span style="color:#5bb75b;">Wingman workshop #<%= @workshop.id%></span> is starting in <span style="color:#5bb75b;"><%= pluralize((@workshop.start_date - DateTime.now ).to_i, 'day')  %></span></h4>
+			<% end %>
+			<div class="main main-raised" style="padding: 20px; margin: 0; background-color: #000;">
+			<div class="videoWrapper" style="border-radius: 10px;">
+			<iframe width="1024" height="720" src="https://www.youtube.com/embed/live_stream?channel=UCm4lWj4W-0JWgq3QrJsRL8g&autoplay=1" frameborder="0" allowfullscreen></iframe>
+			</div>
+			</div>
+
+			<div class="main main-raised" style="padding: 20px; margin: 0; margin-bottom: 20px; margin-top: 10px;">
+				<h3 class="title" style="">Ask your questions here</h3>
+                <div class="media media-post">
+	                <span class="pull-left author">
+                      	<div class="avatar-med">
+                        	<%= render 'layouts/avatar' %>
+                      	</div>
+                  	</span>
+				    <div class="media-body">
+				  		<div style="position: absolute; right: 40px; bottom: 180px; font-size: 18px font-weight:bold; color: #c6c6c6;"><span id="characters">0/125<span></div>
+
+				  		<%= form_for(@message) do |f| %>
+						  <div class="form-group">
+						    <%= f.text_area :body, class: "form-control", placeholder: "Ask your questions here, you have 125 characters per question.", rows: "3",  maxlength:"125" %>
+						  </div>
+ 
+						    <%= f.hidden_field :user_id, value: current_user.id %>
+						    <%= f.hidden_field :workshop_id, value: @workshop.id %>
+						
+	
+						<% end %>
+				    </div>
+				</div> <!-- end media-post -->
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="main main-raised" style="padding: 20px; margin: 0;  overflow-y: scroll; height:600px;">
+				
+				<div data-behavior='messages' data-workshop-id= '<%= @workshop.id %>'>
+					<% @messages.limit(100).each do |message| %>
+						<%= render message %>
+					<% end %>
+				</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	$('textarea').keyup(updateCount);
+	$('textarea').keydown(updateCount);
+
+	function updateCount() {
+	    var cs = $(this).val().length;
+	    $('#characters').text(cs + "/125");
+	}
+
+</script>
+	

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>The Black &amp; Whites - Marketing Consulting for Small Businesses</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= cloudinary_js_config %>
+  </head>
+
+  
+
+  <% if current_page?(new_user_registration_path) || current_page?(new_user_session_path) %>
+    <body class="signup-page">
+  <% else %>
+    <body class="section-white">
+  <% end %>
+
+    <% if current_page?('/') || current_page?(new_user_registration_path) || current_page?(new_user_session_path) || current_page?(new_subscriber_path) || current_page?(tools_and_resources_path)%>
+    <%= render 'layouts/nav' %>
+  	<% else %>
+      <% if user_signed_in? %>
+
+        <% if current_user.suspended? %>
+          <div class="alert alert-danger" style="position: fixed; z-index: 2; width: 100%;">
+            <div class="container-fluid">
+              <div class="text-center">
+                <div class="alert-icon">
+                  <i class="material-icons">error_outline</i>
+                </div>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true"><i class="material-icons">clear</i></span>
+                </button>
+                <b>PAYMENT REQUIRED:</b> Awkward... but unfortunately we had to disable your account until you fix up some billing details. <%= link_to "View Billing Settings", root_path %> 
+              </div>
+            </div>
+          </div>
+          <div style="margin-bottom: 40px;">&nbsp;</div>
+        <% end %>
+
+        <%= render 'layouts/nav_inner' %>
+        
+        <% else %>
+        <%= render 'layouts/nav_inner_fixed' %>
+      <% end %>
+    <% end %>
+
+    <%= yield %>
+
+    <%= render 'layouts/footer' %>
+  </body>
+</html>

@@ -1,0 +1,74 @@
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2 text-center">
+          <h2 class="title">Welcome to our wingman workshops</h2>
+          <h5 class="description">Each week we host live group Q&amp;A's which we like to call our Wingman Workshops. These workshops are hosted via live video forums through various platforms such as youtube and facebook live. These workshops are designed to help provide a little more personal support for our members. You can participate from anywhere in the world... Don't worry you won't be the one on camera, so you can sit down in your PJ's and ask all your questions through our chat system.   </h5>
+          <div class="section-space"></div>
+        </div>
+      </div>
+
+      <div class="row">
+
+        <% @workshops.limit(1).each do |workshop| %>
+        
+          <div class="col-md-5 col-md-offset-1">
+          <div class="card card-background" style="background-color:black;">
+            <a href="#pablo">
+            </a>
+            <div class="card-content">
+              <label class="label label-rose">Starts in <%= pluralize((workshop.start_date - DateTime.now ).to_i, 'day')  %></label>
+              <%= link_to workshop_path(workshop) do %>
+                <h3 class="card-title">Wingman Workshop #<%= workshop.id %></h3>
+              <% end %>
+              <p class="card-description">
+                We'll be starting our next wingman workshop on<br /> <span style="font-weight: bold; color: #fff;"><%= workshop.start_date.strftime("%B %d, %Y") %></span> at <span style="font-weight: bold; color: #fff;"><%= workshop.start_time %></span>
+              </p>
+              <%= link_to "Enter Workshop", workshop_path(workshop), class: "btn btn-primary btn-round " %>
+            </div>
+          </div>
+        </div>
+
+        <% end %>
+
+        
+
+        <div class="col-md-5">
+          <div class="info info-horizontal">
+            <div class="icon icon-info">
+              <i class="material-icons">all_inclusive</i>
+            </div>
+            <div class="description">
+              <h4 class="info-title">We'll keep you in the loop</h4>
+              <p class="description">
+                No need to RSVP, we'll send you a couple of reminder emails letting you know when each workshop is on. 
+              </p>
+            </div>
+              </div>
+
+          <div class="info info-horizontal">
+            <div class="icon icon-primary">
+              <i class="material-icons">code</i>
+            </div>
+            <div class="description">
+              <h4 class="info-title">Live messaging</h4>
+              <p class="description">
+                Ask your questions in our chat box and get live responses. If we don't get to you question on air, we'll be sure to follow up with an email or phone call. <strong style="color: #e91e63">We try to answer all questions each week.</strong>
+              </p>
+            </div>
+          </div>
+
+          <div class="info info-horizontal">
+            <div class="icon icon-rose">
+              <i class="material-icons">dashboard</i>
+            </div>
+            <div class="description">
+              <h4 class="info-title">Super simple to use</h4>
+              <p class="description">
+                Simply login, open the workshop and start asking your questions. It's productive and much more enjoyable to sitting in a boardroom.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <hr />

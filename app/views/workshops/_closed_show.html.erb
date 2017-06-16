@@ -1,0 +1,46 @@
+<div class="container">
+	<div class="row" style="margin-top: 60px;">
+		<div class="col-md-8">
+			<% if DateTime.now - @workshop.start_date < 1 %>
+			<h4 style="font-weight: bold;"><span style="color:#5bb75b;">Wingman workshop #<%= @workshop.id%></span> is starting in <span style="color:#5bb75b;"><%= pluralize((@workshop.start_date - DateTime.now ).to_i, 'day')  %></span></h4>
+			<% end %>
+			<div class="main main-raised" style="padding: 20px; margin: 0; background-color: #000;">
+			<div class="videoWrapper" style="border-radius: 10px;">
+			<iframe width="1024" height="720" src="https://www.youtube.com/embed/live_stream?channel=UCm4lWj4W-0JWgq3QrJsRL8g&autoplay=1" frameborder="0" allowfullscreen></iframe>
+			</div>
+			</div>
+
+			<div class="main main-raised" style="padding: 20px; margin: 0; margin-top: 10px;">
+				<h5 class="title" style="">This workshop is not open just yet?<br /> Hang around for <%= @workshop.start_time %> on <%= @workshop.start_date.strftime("%B %d, %Y") %></h5>
+                
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="main main-raised" style="padding: 20px; margin: 0; overflow-y: scroll; height:600px;">
+				
+				<div data-behavior='messages' data-workshop-id= '<%= @workshop.id %>'>
+					<% if @messages.count < 1 %>
+							<h4>Questions will start appearing here instantly once the workshop has started.</h4>
+						<% end %>
+
+					<% @messages.limit(100).each do |message| %>
+						
+							<%= render message %>
+						
+					<% end %>
+				</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	$('textarea').keyup(updateCount);
+	$('textarea').keydown(updateCount);
+
+	function updateCount() {
+	    var cs = $(this).val().length;
+	    $('#characters').text(cs + "/125");
+	}
+
+</script>
+	

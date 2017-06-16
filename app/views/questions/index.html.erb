@@ -1,0 +1,129 @@
+<div class="projects-4" id="projects-4">
+  <div class="container">
+  
+       <div class="row">
+        <div class="col-md-8 col-md-offset-2 text-center">
+          <h2 class="title">Community Support Forum</h2>
+          <h5 class="description">Ask your question below, we try to respond as quickly as possible. If you feel like lending a helping hand, try answering a question for someone else. You can use the search bar to navigate through the forum.</h5>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+        <div class="section-space"></div>
+        </div>
+      </div>
+
+
+
+      <div class="row">
+        <div class="col-md-3">
+          <% if user_signed_in? && current_user.suspended == false %>
+            <button class="btn btn-lg btn-success btn-block" data-toggle="modal" data-target="#asking">ASK A QUESTION</button>
+          <% else %>
+            <%= link_to "Sign up to ask a question", new_user_registration_path, class: "btn btn-rounded btn-rose btn-lg" %>
+          <% end %>
+        </div>
+        <div class="col-md-9">
+        <div style="background-color: #f5f5f5; border: 1px solid #e5e5e5; border-bottom: 0">
+          <div class="row">
+            <div class="col-md-6" style="padding-top: 30px;"><small style=" margin-left: 15px;"><i>"Every adventure requires a first step"</i> - Lewis Carroll (Alice &amp; Wonderland)</small></div>
+            <div class="col-md-6 text-right">
+            
+            <%= form_tag(questions_path, :method => "get", id: "search-form", class: "form-inline", style: "margin:auto; text-align: center; margin-top: 5px;") do%>
+              <div class="form-group">
+                <%= text_field_tag :search, params[:search], placeholder: "Search Forum", class: "form-control" %>
+              </div>
+              <%= submit_tag "Find Support", class: "btn btn-primary" %>
+            <% end %>
+
+            </div>
+          </div>
+        </div>
+
+          <% @questions.each do |question| %>
+            
+            <div class="question-parent" style="padding:10px; border:1px solid #e5e5e5;  border-top:0;">
+              <div class="row">
+                <div class="col-md-1">
+                    <span class="pull-left author">
+                      <div class="avatar-med-sm" style="padding-top: 20px;">
+                        <% if question.user.avatar? %>
+                          <%= cl_image_tag(question.user.avatar.path, { size: '250x250', crop: :thumb, gravity: :face }) %>
+                        <% else %>
+                          <%= cl_image_tag("bnw/assets/84238.jpg") %>
+                        <% end %>
+                      </div>
+                    </span>
+                  </div>
+                  <div class="col-md-9">
+
+                  <i class="material-icons pull-left" style="padding-top: 10px; margin-right: 10px; color: #d5d5d5">question_answer</i>
+                  <% if user_signed_in? && current_user.suspended == false %>
+                    <%= link_to question_path(question) do %><h4><%= question.title %></h4><% end %>
+                  <% else %>
+                    <h4><%= question.title %></h4>
+                  <% end %>
+                  <% if user_signed_in? && question.user_id == current_user.id %>
+                      <%= link_to question, :method => :delete, data: { confirm: "Deleting this question will delete any reponses that are attached to it. Are you sure you want to do this?" }, :remote => true, class: "pull-right delete_question" do %>
+                        <i class="material-icons" style="color: #9b0017">close</i>
+                      <% end %>
+                    <% end %>
+                  <small style="color: #aaa">Asked <%= time_ago_in_words(question.created_at) %> ago by <%= question.user.first_name %></small><br />
+
+                  <%= truncate(question.body, length: 200) %>
+
+                </div>
+
+                <% reply_answers_count = ReplyAnswer.where(question_id: question.id).all %>
+                <% answers_count = Answer.where(question_id:  question.id).all %>
+
+                <div class="col-md-2 text-center" style="padding-top: 40px;">
+                  <span style="font-size: 30px;"><%= reply_answers_count.count + answers_count.count %></span><br>
+                  <span>REPLIES</span>
+                </div>
+              </div>
+            </div>
+        
+          <% end %>
+
+        </div>
+      </div>
+
+
+    
+  </div>
+</div>
+
+<!-- Ask Question Modal -->
+<% if user_signed_in? %>
+<div class="modal fade" id="asking" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+      
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Ask your question</h4>
+      </div>
+      <div class="modal-body">
+        <%= form_for (@newquestion) do |f| %>
+          <div class="form-group">
+            <%= f.text_field :title, class: "form-control", placeholder: 'Give your question a title' %>
+          </div>
+          <div class="form-group">
+            <%= f.text_area :body, class: "form-control", row: '2', placeholder: 'Write your question here...' %>
+          </div>
+            <div class="field">
+              <%= f.hidden_field :user_id, value: current_user.id %>
+            </div>
+
+            <div class="field">
+              <%= f.hidden_field :category_id, value: 1 %>
+            </div>
+          <%= f.submit "Ask Now", class: "btn btn-success" %>
+
+        <% end %>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+<% end %>

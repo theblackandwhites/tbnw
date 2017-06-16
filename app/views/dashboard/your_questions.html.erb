@@ -1,0 +1,39 @@
+ <%= render 'dashboard/header' %>
+ <div class="col-md-9">
+	<table class="table table-striped table-bordered table-hover">
+	<thead style="background-color: #38495b; color: #fff; ">
+		<th>Question</th>
+		<th>Date</th>
+		<th>Responses</th>
+		<th>Delete</th>
+	</thead>
+
+	<% if @questions.count < 1 %>
+	<tr>
+		<td colspan="4" class="text-center"><h4>You haven't asked a question yet...</h4></td>
+	</tr>
+	<% else %>
+		<% @questions.each do |question| %>
+			<tr>
+				<td style="padding-right: 40px;"><%= link_to question_path(question) do %><h4><%= question.title%></h4><% end %>
+				
+				<div class="description" style="font-size: 12px;"><%= truncate(question.body, length: 200) %></div>	
+				</td>
+				<td class="text-center" style="font-size: 12px;"><%= time_ago_in_words(question.created_at) %> ago</td>
+				<td class="text-center"><%= (question.answers.count) + (question.reply_answers.count) %><br /> Responses</td>
+				<td>
+				<% if question.user_id == current_user.id %>
+                  <%= link_to question, :method => :delete, data: { confirm: "Deleting this question will delete any reponses that are attached to it. Are you sure you want to do this?" }, :remote => true, class: "delete_question_2 btn btn-danger" do %>
+                    <i class="material-icons" style="color: #9b0017">close</i> Delete Question
+                  <% end %>
+                <% end %>
+                </td>
+			</tr>
+		<% end %>
+	<% end %>
+	</table>
+</div>
+<div class="col-md-3">
+	<%= link_to "Ask a Question", questions_path, class: "btn btn-success btn-lg btn-block" %>
+</div>
+ <%= render 'dashboard/footer' %>

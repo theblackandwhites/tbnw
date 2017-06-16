@@ -1,0 +1,49 @@
+ <%= render 'dashboard/header' %>
+ <div class="col-md-9">
+	<table class="table table-striped table-bordered table-hover">
+	<thead style="background-color: #38495b; color: #fff; ">
+		<th>Invoice Number</th>
+		<th>Credit Card</th>
+		<th class="text-center">Date</th>
+		<th>Amount</th>
+		<th>PDF</th>
+	</thead>
+
+	<% if @charges.count < 1 %>
+	<tr>
+		<td colspan="3" class="text-center"><h4>You haven't charged your account yet...</h4></td>
+	</tr>
+	<% else %>
+		<% @charges.each do |charge| %>
+			<tr>
+				<td style="padding-right: 40px;" class="text-center"><%= link_to charge_path(charge, format: "pdf"), target: "_blank" do %><h4>#0413<%= charge.id %></h4><% end %></td>
+				<td>
+				<div class="description" style="font-size: 12px;">
+					<% if charge.credit_card_type == "Visa" %>
+					<img src="http://res.cloudinary.com/theblackandwhites/image/upload/v1497409130/bnw/assets/visa.png" alt="visa" align="left" width="50">
+					<% end %>
+
+					<% if charge.credit_card_type == "MasterCard" %>
+					<img src="http://res.cloudinary.com/theblackandwhites/image/upload/v1497409130/bnw/assets/mastercard.png" alt="mastercard" align="left" width="50">
+					<% end %>
+
+					<% if charge.credit_card_type == "American Express" %>
+					<img src="http://res.cloudinary.com/theblackandwhites/image/upload/v1497409130/bnw/assets/amex.png" alt="mastercard" align="left" width="50">
+					<% end %>
+					
+
+					&nbsp;&nbsp;&nbsp;&nbsp;&#9679;&nbsp;&#9679;&nbsp;&#9679;&nbsp;&#9679;&nbsp;&nbsp;&#9679;&nbsp;&#9679;&nbsp;&#9679;&nbsp;&#9679;&nbsp;&nbsp;&#9679;&nbsp;&#9679;&nbsp;&#9679;&nbsp;&#9679;&nbsp;&nbsp; <span style=" font-size: 18px;"><%= charge.credit_card_last_4 %> &nbsp;&nbsp;&nbsp; <%= charge.credit_card_exp_month %> / <%= charge.credit_card_exp_year %></span>
+				</div>	
+				</td>
+				<td class="text-center" style="font-size: 12px;"><%= charge.created_at.strftime("%d/%m/%Y") %></td>
+				<td class="text-center" style="font-size: 12px;"><%= number_to_currency(charge.amount / 100) %></td>
+				<td class="text-center"><%= link_to "View Invoice", charge_path(charge, format: "pdf"), target: "_blank", class: 'btn btn-primary' %></td>
+			</tr>
+		<% end %>
+	<% end %>
+	</table>
+</div>
+<div class="col-md-3">
+	<%= link_to "Ask a Question", questions_path, class: "btn btn-success btn-lg btn-block" %>
+</div>
+ <%= render 'dashboard/footer' %>

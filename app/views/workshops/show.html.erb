@@ -1,0 +1,12 @@
+    <% if user_signed_in? && !@workshop.status_closed? %>
+		<% if user_signed_in? && current_user.suspended == true %>
+    		<%= render 'workshops/guest_show' %>
+    	<% elsif user_signed_in? && current_user.suspended == false %>
+    		<%= render 'workshops/member_show' %>
+    	<% end %>
+    <% elsif user_signed_in? && @workshop.status_closed? %>
+    <%= render 'workshops/closed_show' %>
+
+    <% else %>
+    <%= render 'workshops/guest_show' %>
+    <% end %>

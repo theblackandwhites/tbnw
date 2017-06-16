@@ -1,0 +1,193 @@
+<div class="projects-4" id="projects-4">
+  <div class="container">
+
+      <div class="row">
+
+        <div class="col-md-3">
+          <% if user_signed_in? && current_user.suspended == false %>
+            <button class="btn btn-lg btn-success btn-block" data-toggle="modal" data-target="#asking">ASK A QUESTION</button>
+          <% else %>
+            <%= link_to "Sign up to ask a question", new_user_registration_path, class: "btn btn-rounded btn-rose btn-lg" %>
+          <% end %>
+        </div>
+        <div class="col-md-9">
+        <div style="background-color: #fafafa; border: 1px solid #e5e5e5; border-bottom: 0">
+          <div class="row">
+
+            <div class="col-md-12" style="padding: 10px 30px;">
+              <div class="row">
+                
+                <div class="col-md-8">
+                  <h3 style="line-height: 30px;"> <%= @question.title %></h3>
+                  <small style="color: #aaa">Asked <%= time_ago_in_words(@question.created_at) %> ago by <%= @question.user.first_name %> <%= @question.user.last_name %></small><br />
+                  <p><%= @question.body %></p>
+                </div>
+                <div class="col-md-4">
+                  <% if @question.user_id == current_user.id %>
+                    <%= link_to @question, :method => :delete, data: { confirm: "Deleting this question will delete any reponses that are attached to it. Are you sure you want to do this?" }, class: "delete_question_2 btn btn-danger" do %>
+                      <i class="material-icons" style="color: #9b0017">close</i> Delete Question
+                    <% end %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+           <div class="col-md-12">
+        <!--COMMENTS GO HERE-->
+        <div style="background-color: #f5f5f5; padding: 10px; border-top: 1px solid #eee;">
+        <% if user_signed_in? && current_user.suspended == false %>
+        <h3 class="text-center"><%= current_user.first_name%>, would you like to respond?</h3>
+        <div class="media media-post">
+            
+
+          <span class="pull-left author">
+                      <div class="avatar-med">
+                        <%= render 'layouts/avatar' %>
+                      </div>
+                  </span>
+
+
+            <div class="media-body">
+                  <%= form_for(@answer) do |f| %>
+                    <div class="form-group">
+                      <%= f.text_area :body, placeholder: "#{current_user.first_name}, leave your answer here...", rows: "2", class: "form-control", maxlength: "500" %>
+                    </div>
+                      <%= f.hidden_field :user_id, value: current_user.id %>
+                      <%= f.hidden_field :question_id, value: @question.id %>
+                    <div class="media-footer">
+                      <%= f.submit "Post a Response", class: "btn btn-primary btn-wd pull-right" %>
+                    </div>
+                  <% end %>
+            </div>
+        </div> <!-- end media-post -->
+        <% end %>
+        
+        <% if user_signed_in? && current_user.suspended == false %>
+          <% @answers.each do |answer|%>
+      
+          <div class="media">
+            
+              <span class="pull-left author">
+                <div class="avatar-med-sm">
+                  <% if answer.user.avatar? %>
+                    <%= cl_image_tag(answer.user.avatar.path, { size: '250x250', crop: :thumb, gravity: :face }) %>
+                  <% else %>
+                    <%= cl_image_tag("bnw/assets/84238.jpg") %>
+                  <% end %>
+                </div>
+            </span>
+            <div class="media-body">
+              <h4 class="media-heading" style="font-size: 14px;"><%= answer.user.first_name %> <%= answer.user.last_name %> <small>&middot; <%= time_ago_in_words(answer.created_at) %> ago</small></h4>
+
+              <% if answer.user_id == current_user.id %>
+                <%= link_to answer, :method => :delete, :remote => true, class: "pull-right delete_answer" do %>
+                  <i class="material-icons" style="color: #9b0017">close</i>
+                <% end %>
+              <% end %>
+
+              <p><%= answer.body %></p>
+              <div class="row">
+                <div class="col-md-8 col-md-offset-3" style="background-color: #fcfcfc; padding: 5px 15px; -webkit-border-top-left-radius: 5px; -webkit-border-top-right-radius: 5px; -moz-border-radius-topleft: 5px; -moz-border-radius-topright: 5px; border-top-left-radius: 5px; border-top-right-radius: 5px;">
+       
+                  <% if user_signed_in? %>
+                    <%= form_for(@reply_answer) do |f| %>
+                      <div class="row">
+                        <div class="col-md-10">
+                          <div class="form-group" style="margin: 0">
+                            <%= f.text_area :body, placeholder: "#{current_user.first_name}, would you like to reply to this comment.", rows: "1", class: "form-control", maxlength: "125" %>
+                          </div>
+                          <%= f.hidden_field :user_id, value: current_user.id %>
+                          <%= f.hidden_field :answer_id, value: answer.id %>
+                          <%= f.hidden_field :question_id, value: @question.id %>
+                        </div>
+                        <div class="col-md-2">
+                          <%= f.submit "Reply", class: "btn btn-success btn-sm btn-wd pull-right" %>
+                        </div>
+                      </div>
+                    <% end %>
+                  <% end %>             
+                </div>
+
+                <% @replies = ReplyAnswer.where(question_id: @question.id).where(answer_id: answer.id).all.order(created_at: :desc) %>
+                <% @replies.each do |reply| %>
+                <div class="col-md-8 col-md-offset-3" style="background-color: #e8eeef; border-bottom: 1px solid #f5f5f5; padding-top: 10px;">
+                  <div class="media">
+                  <span class="pull-left author">
+                <div class="avatar-sm">
+                  <% if reply.user.avatar? %>
+                    <%= cl_image_tag(reply.user.avatar.path, { size: '250x250', crop: :thumb, gravity: :face }) %>
+                  <% else %>
+                    <%= cl_image_tag("bnw/assets/84238.jpg") %>
+                  <% end %>
+                </div>
+            </span>
+                    <div class="media-body">
+                      <h4 class="media-heading" style="font-size: 14px;"><%= reply.user.first_name %> <%= reply.user.last_name %> <small>REPLIED &middot; <%= time_ago_in_words(reply.created_at) %> ago</small></h4>
+                      <% if reply.user_id == current_user.id %>
+                        <%= link_to reply, :method => :delete, :remote => true, class: "pull-right delete_reply_answer" do %>
+                          <i class="material-icons" style="color: #9b0017">close</i>
+                        <% end %>
+                      <% end %>
+
+                      <p ><%= reply.body %></p>
+                    </div>
+                  </div>
+                </div>
+                <% end %>
+                
+                <div class="col-md-8 col-md-offset-3" style="-webkit-border-bottom-right-radius: 5px; -webkit-border-bottom-left-radius: 5px; -moz-border-radius-bottomright: 5px; -moz-border-radius-bottomleft: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; background-color: #e8eeef; height: 10px;">
+                </div></div>
+            </div>
+          </div>
+
+          <% end %>
+        <% end %>
+
+        </div>
+        </div>
+
+        </div>  
+          
+
+        </div>
+      </div>
+    
+  </div>
+</div>
+
+<% if user_signed_in? %>
+<!-- Ask Question Modal -->
+<div class="modal fade" id="asking" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Ask your question</h4>
+      </div>
+      <div class="modal-body">
+        <%= form_for (@newquestion) do |f| %>
+          <div class="form-group">
+            <%= f.text_field :title, class: "form-control", placeholder: 'Give your question a title' %>
+          </div>
+          <div class="form-group">
+            <%= f.text_area :body, class: "form-control", row: '2', placeholder: 'Write your question here...' %>
+          </div>
+            <div class="field">
+              <%= f.hidden_field :user_id, value: current_user.id %>
+            </div>
+
+            <div class="field">
+              <%= f.hidden_field :category_id, value: 1 %>
+            </div>
+          <%= f.submit "Ask Now", class: "btn btn-success" %>
+
+        <% end %>
+      </div>
+      
+    </div>
+  </div>
+</div>
+<% end %>

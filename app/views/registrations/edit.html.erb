@@ -1,0 +1,136 @@
+
+ <%= render 'dashboard/header' %>
+
+
+
+    <div class="col-md-4" style="padding-right: 40px;">
+
+    <% if current_user.sign_in_count < 2 %>
+
+      <h3>Welcome, aboard!</h3>
+      <p>This is your dashboard, you can access it by clicking your profile image in the navigation menu and selecting "Account Settings". Please be sure to fill out your profile now so you don't forget later on. Once you have done that head over to our hack videos or our support forums and ask any questions that you might have on your mind. </p>
+
+      <h4>I'll be in touch shortly to let you know when the next wingman workshop is.</h4>
+      <hr>
+    <% end %>
+    </div>
+
+
+
+    <div class="col-md-5">
+
+    <h4>Update your profile</h4>
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= devise_error_messages! %>
+
+      <div class="row">
+        <div class="col-md-12">
+
+        <div class="fileinput fileinput-new" data-provides="fileinput">
+          <span class="btn btn-default btn-file"><span class="fileinput-new">Select file</span><span class="fileinput-exists">Change</span>
+          <%= f.attachinary_file_field :avatar %></span>
+          <span class="fileinput-filename"></span>
+          <a href="#" class="close fileinput-exists" data-dismiss="fileinput" style="float: none">&times;</a>
+        </div>
+          
+        </div>
+      </div>
+
+
+
+
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= f.label :first_name %><br />
+            <%= f.text_field :first_name, autofocus: true, class: "form-control" %>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= f.label :last_name %><br />
+            <%= f.text_field :last_name, class: "form-control" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-7">
+          <div class="form-group">
+        <%= f.label :email %><br />
+        <%= f.email_field :email,class: "form-control" %>
+      </div>
+        </div>
+        <div class="col-md-5">
+           <div class="form-group">
+        <%= f.label :phone %><br />
+        <%= f.text_field :phone,class: "form-control" %>
+      </div>
+        </div>
+      </div>
+      
+
+      <div class="row">
+        <div class="col-md-8">
+          <div class="form-group">
+        <%= f.label :address %><br />
+        <%= f.text_field :address,class: "form-control" %>
+      </div>
+        </div>
+        <div class="col-md-4">
+           <div class="form-group">
+        <%= f.label :postcode %><br />
+        <%= f.text_field :postcode,class: "form-control" %>
+      </div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+        <%= f.label :company_name %><br />
+        <%= f.text_field :company_name,class: "form-control" %>
+         </div>
+        </div>
+      </div>
+     
+
+      
+
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
+
+      <div class="form-group">
+        <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+        <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+        <% if @minimum_password_length %>
+          <br />
+          <em><%= @minimum_password_length %> characters minimum</em>
+        <% end %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Update Your Profile", class: "btn btn-success btn-lg" %>
+      </div>
+    <% end %>
+      
+    </div>
+
+    <div class="col-md-3">
+      
+    </div>
+
+ <%= render 'dashboard/footer' %> 
+
+
+
+ 
+
+
+
+
+
+

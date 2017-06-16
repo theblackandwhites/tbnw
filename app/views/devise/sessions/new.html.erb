@@ -1,0 +1,65 @@
+<div class="page-header header-filter" filter-color="purple" style="background-image: url('http://res.cloudinary.com/theblackandwhites/image/upload/v1496989800/bnw/assets/busy.jpg'); background-size: cover; background-position: top right;">
+      <div class="container">
+      <div class="row">
+          <div class="col-md-4 ">
+
+          <div class="card card-signup">
+                        
+              <div class="row">
+
+                <h3 class="card-title text-center">Welcome Back!</h3>
+                <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                  <div class="card-content">
+                    <div class="input-group">
+                      <%= devise_error_messages! %>
+                    </div>
+                    
+
+                    <div class="input-group">
+                      <span class="input-group-addon">
+                        <i class="material-icons">email</i>
+                      </span>
+                      
+                      <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "Your Email" %>
+                   
+                    </div>
+
+                    <div class="input-group">
+                      <span class="input-group-addon">
+                        <i class="material-icons">lock_outline</i>
+                      </span>
+                      
+                      <%= f.password_field :password, autocomplete: "off", placeholder: "Password...", class: "form-control" %>
+                      
+                      
+                    </div>
+
+
+                    </div>
+
+                  </div>
+                  <div class="footer text-center">
+                    <%= f.submit "Sign In", class: "btn btn-primary btn-round" %>
+                  </div>
+
+                  <div style="margin-top: 20px; " class="text-center">
+                  <%= render "devise/shared/links" %><br />
+                  </div>
+
+                <% end %>
+
+                            </div>
+                        </div>
+                  </div>
+
+                </div>
+            </div>
+    </div>
+
+  
+
+
+
+
+
+

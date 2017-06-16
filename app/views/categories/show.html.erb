@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @category.title %>
+</p>
+
+<p>
+  <strong>Color hex:</strong>
+  <%= @category.color_hex %>
+</p>
+
+<p>
+  <strong>Icon code:</strong>
+  <%= @category.icon_code %>
+</p>
+
+<%= link_to 'Edit', edit_category_path(@category) %> |
+<%= link_to 'Back', categories_path %>
