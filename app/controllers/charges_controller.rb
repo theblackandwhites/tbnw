@@ -126,12 +126,19 @@ class ChargesController < ApplicationController
   end
 
   def remove_me
-    
+
+
+
     Stripe.api_key = ENV["stripe_seceret_key"]
     @user = current_user
 
-    subscription = Stripe::Subscription.retrieve(@user.stripe_subscription_id)
-    subscription.delete
+    if @user.stripe_subscription_id.blank?
+      @user.destroy
+    else
+      subscription = Stripe::Subscription.retrieve(@user.stripe_subscription_id)
+      subscription.delete
+      @user.destroy
+    end
 
     redirect_to root_path
 

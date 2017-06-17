@@ -50,8 +50,7 @@ end
 class DeletedSubscription 
 	def call(event)
 		charge = event.data.object
-		@user = User.where(stripe_id: charge.customer).last
-		@user.destroy
+		
 	end
 end 
 
