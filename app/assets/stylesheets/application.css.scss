@@ -58,3 +58,20 @@
 #particles-js {
   background: black;
 }
+
+.floating {
+	 position: absolute;
+	 width: 100%;
+}
+
+@media only screen and (max-device-width: 480px) {
+	.floating {
+	 position: relative;
+	}
+
+	.page-header .container{
+		padding: 40px 10px;
+		padding-top: 100px;
+	}
+
+}
