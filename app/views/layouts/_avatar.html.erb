@@ -1,5 +1,9 @@
 <% if current_user.avatar? %>
-	<%= cl_image_tag(current_user.avatar.path, { size: '250x250', crop: :thumb, gravity: :face }) %>
+	<%= link_to edit_user_registration_path do %>
+		<%= cl_image_tag(current_user.avatar.path, { size: '250x250', crop: :thumb, gravity: :face }) %>
+	<% end %>
 <% else %>
-	<%= cl_image_tag("bnw/assets/84238.jpg") %>
+	<%= link_to edit_user_registration_path do %>
+		<%= cl_image_tag("bnw/assets/84238.jpg") %>
+	<% end %>
 <% end %>
