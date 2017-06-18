@@ -38,3 +38,4 @@ var isPlaying = video.currentTime > 0 && !video.paused && !video.ended
 if (!isPlaying) {
   video.play();
 }
+
