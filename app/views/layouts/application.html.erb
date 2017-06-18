@@ -12,9 +12,9 @@
   
 
   <% if current_page?(new_user_registration_path) || current_page?(new_user_session_path) %>
-    <body class="signup-page" <%= yield(:body_attributes) %>>
+    <body class="signup-page" >
   <% else %>
-    <body class="section-white" <%= yield(:body_attributes) %>>
+    <body class="section-white" >
   <% end %>
 
     <% if current_page?('/') || current_page?(new_user_registration_path) || current_page?(new_user_session_path) || current_page?(new_subscriber_path) || current_page?(tools_and_resources_path)%>
