@@ -46,15 +46,15 @@
 								<li><%= link_to "Update Billing Details", dashboard_billing_path %></li>
 								<li><%= link_to "Payment History", dashboard_invoices_path %></li>
 
-<% if user_signed_in? %>
-  <li>
-  <%= link_to('Logout', destroy_user_session_path, method: :delete) %>        
-  </li>
-<% else %>
-  <li>
-  <%= link_to('Login', new_user_session_path)  %>  
-  </li>
-<% end %>
+							<% if user_signed_in? %>
+							  <li>
+							  <%= link_to('Logout', destroy_user_session_path, method: :delete) %>        
+							  </li>
+							<% else %>
+							  <li>
+							  <%= link_to('Login', new_user_session_path)  %>  
+							  </li>
+							<% end %>
 							</ul>
 						</li>
 
