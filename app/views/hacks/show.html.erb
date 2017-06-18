@@ -9,7 +9,7 @@
         <% if user_signed_in? && current_user.suspended == false %>
           <style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src="https://player.vimeo.com/video/<%= @hack.video_embed_code %>" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>
         <% else %>
-          <div style="padding: 250px 0; text-align: center; background-image: url('http://www.eyewithwings.net/nechvatal/Post-Photography/From%20Photography_files/image060.gif'); background-color: rgba(0,0,0,.5);">
+          <div style="padding: 250px 0; text-align: center; background-image: url('https://res.cloudinary.com/theblackandwhites/image/upload/v1497747143/bnw/assets/image060.gif'); background-color: rgba(0,0,0,.5);">
             <h1 style="color: #fff;">Sorry, this video is only available for our members, please sign up to gain access.</h1>
             <%= link_to "SIGN UP", new_user_registration_path, class: "btn btn-lg btn-rose btn-rounded" %>
           </div>  
