@@ -30,9 +30,3 @@
 //= require cloudinary/jquery.cloudinary
 //= require attachinary
 //= require main.js
-
-$(document).ready(function () {
-    $("nav").find("li").on("click", "a", function () {
-        $('.navbar-collapse.in').collapse('hide');
-    });
-});
