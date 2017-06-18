@@ -30,3 +30,11 @@
 //= require cloudinary/jquery.cloudinary
 //= require attachinary
 //= require main.js
+
+
+var isPlaying = video.currentTime > 0 && !video.paused && !video.ended 
+    && video.readyState > 2;
+
+if (!isPlaying) {
+  video.play();
+}

@@ -5,6 +5,12 @@
 @import "font-awesome";
 @import "material_icons";
 
+/* Nav Fix */
+.navbar .navbar-inverse{
+z-index: 99999;
+}
+
+
 .videoWrapper {
 	position: relative;
 	padding-bottom: 56.25%; /* 16:9 */
