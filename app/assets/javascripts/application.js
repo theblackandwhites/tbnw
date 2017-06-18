@@ -31,9 +31,8 @@
 //= require attachinary
 //= require main.js
 
- $(function(){ 
-     var navMain = $(".navbar-collapse"); 
-     navMain.on("click", "a:not([data-toggle])", null, function () {
-         navMain.collapse('hide');
-     });
- });
+$(document).ready(function () {
+    $("nav").find("li").on("click", "a", function () {
+        $('.navbar-collapse.in').collapse('hide');
+    });
+});
