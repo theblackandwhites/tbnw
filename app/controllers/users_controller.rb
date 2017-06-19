@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @users = User.all
+    @users = User.where.not(id: current_user.id).all
   end
 
   def show
@@ -51,7 +51,7 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to users_path, notice: 'User was successfully destroyed.' }
+      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
