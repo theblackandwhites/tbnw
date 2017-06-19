@@ -8,6 +8,7 @@ class User < ApplicationRecord
 	has_many :comments, dependent: :destroy
 	has_many :replies, dependent: :destroy
 	has_many :answers, dependent: :destroy
+	has_many :charges, dependent: :destroy
 
 	has_attachment  :avatar, accept: [:jpg, :png, :gif]
 
