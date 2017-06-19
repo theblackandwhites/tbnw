@@ -132,6 +132,8 @@ class ChargesController < ApplicationController
     Stripe.api_key = ENV["stripe_seceret_key"]
     @user = current_user
 
+    @useremail = Digest::MD5.hexdigest(@user.email)
+
     if @user.stripe_subscription_id.blank?
       @user.destroy
     else
@@ -139,6 +141,11 @@ class ChargesController < ApplicationController
       subscription.delete
       @user.destroy
     end
+
+    gibbon = Gibbon::Request.new(api_key: "0a9ffb6db9a6a723e4f0841f18dc3636-us15")
+    gibbon.timeout = 30
+    gibbon.open_timeout = 30
+    gibbon.lists("4c140da556").members(@useremail).update(body: { status: "unsubscribed" })
 
     redirect_to root_path
 
