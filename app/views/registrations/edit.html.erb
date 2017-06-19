@@ -1,5 +1,45 @@
  <%= render 'dashboard/header' %>
 
+    <div class="anyClassBtn btn btn-success">Launch Tour</div>
+
+<script>
+$(window).load(function(){
+        $(".anyClassBtn").on("click",function(){
+                $("body").itour({
+                        "tourID": "intro_tour",
+                        "introShow": true,
+                        "tourTitle": "Introductory Tour",
+                        "tourMapVisible": true,
+                        "lang":{
+                                "introTitle": "Hi, I'm Josh!",
+                                "introContent": "Let me show you around the place."
+                        },
+                        "steps": [{
+                                "title": "Update your profile settings",
+                                "content": "Clicking on this link allows you to keep you profile updated. We'll come back to this so you can finish your profile later.",
+                                "name": ".nav_profile_settings",
+                                "skip": true
+                        },{
+                                "title": "Billing & Receipts",
+                                "content": "Clicking on this link, you'll be able to see any recent receipts. You'll also be able to update your payment details and deactivate your account.",
+                                "name": ".nav_billing",
+                                "skip": false
+                        },{
+                                "title": "All your questions",
+                                "content": "When it comes time to ask us a question. You'll see it appear under this link. You'll also see how many responses each question has.",
+                                "name": ".nav_questions",
+                                "skip": false
+                        },{
+                                "title": "Find your dashboard",
+                                "content": "You can find your dashboard by clicking on your profile picture. Once you finish updating your profile, this image will be replaced with your own.",
+                                "name": ".avatar-nav",
+                                "skip": false
+                        }]
+                });
+                return false;
+        });
+})
+</script>
 
 
     <div class="col-md-4" style="padding-right: 40px;">
