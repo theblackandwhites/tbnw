@@ -49,7 +49,18 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user.destroy
+
+    Stripe.api_key = ENV["stripe_seceret_key"]
+
+    if @user.stripe_subscription_id.blank?
+      @user.destroy
+    else
+      subscription = Stripe::Subscription.retrieve(@user.stripe_subscription_id)
+      subscription.delete
+      @user.destroy
+    end
+
+
     respond_to do |format|
       format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
       format.json { head :no_content }
