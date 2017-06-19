@@ -3,6 +3,8 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
   load_and_authorize_resource
 
+  require 'digest/md5'
+
   def index
    @users = User.where.not(id: current_user.id).all
   end
@@ -50,6 +52,8 @@ class UsersController < ApplicationController
 
   def destroy
 
+    @useremail = Digest::MD5.hexdigest(@user.email)
+
     Stripe.api_key = ENV["stripe_seceret_key"]
 
     if @user.stripe_subscription_id.blank?
@@ -59,6 +63,12 @@ class UsersController < ApplicationController
       subscription.delete
       @user.destroy
     end
+
+    gibbon = Gibbon::Request.new(api_key: "0a9ffb6db9a6a723e4f0841f18dc3636-us15")
+    gibbon.timeout = 30
+    gibbon.open_timeout = 30
+    gibbon.lists("4c140da556").members(@useremail).update(body: { status: "unsubscribed" })
+
 
 
     respond_to do |format|
