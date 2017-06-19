@@ -20,7 +20,10 @@
 
           <div class="collapse navbar-collapse" id="dashnav">
             <ul class="nav navbar-nav">
-              
+
+              <% if current_user.admin? %>
+                <li><%= link_to "View all #{@mymembers.count} users", users_path %></li>
+              <% end %>
 
               <li><%= link_to "Profile Settings", edit_user_registration_path %></li>
 

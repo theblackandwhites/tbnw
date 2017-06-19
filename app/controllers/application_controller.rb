@@ -2,6 +2,11 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  @alladmins = User.where(admin: true).all
+  @allusers = User.all
+
+  @mymembers = @allusers.count - @alladmins.count
+
   protected
 
   def configure_permitted_parameters
