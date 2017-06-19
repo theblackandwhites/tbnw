@@ -1,0 +1,33 @@
+ <%= render 'dashboard/header' %>
+ <div class="col-md-3">
+	<h4>Josh you legend you have <strong><%= @users.count %></strong> users. Your goal is 100 get a move on!</h4>
+</div>
+ <div class="col-md-9">
+	<table class="table table-striped table-bordered table-hover">
+	<thead style="background-color: #38495b; color: #fff; ">
+		<th>Name</th>
+		<th>Email</th>
+		<th>Company</th>
+		<th>Signed up</th>
+	</thead>
+
+	<% if @users.count < 1 %>
+	<tr>
+		<td colspan="4" class="text-center"><h4>No users man... do some work</h4></td>
+	</tr>
+	<% else %>
+		<% @users.each do |user| %>
+			<tr>
+				<td style="padding-right: 40px;"><h4><%= user.first_name%> <%= user.last_name%></h4></td>
+				<td class="text-center" style="font-size: 12px;"><%= user.email %></td>
+				<td class="text-center"><%= user.company_name? %></td>
+				<td>
+				<%= time_ago_in_words(user.created_at) %> ago
+                </td>
+			</tr>
+		<% end %>
+	<% end %>
+	</table>
+</div>
+
+ <%= render 'dashboard/footer' %>

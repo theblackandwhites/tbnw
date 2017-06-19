@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  #Devise resources
+  devise_for :users, controllers: { registrations: "registrations" }
+
   resources :reply_answers
   resources :replies
   resources :comments
@@ -10,7 +13,10 @@ Rails.application.routes.draw do
   resources :messages
   resources :workshops
   resources :charges
-  
+  scope "/admin" do
+    resources :users
+  end
+
   #Dashboard Pages
   get 'dashboard/invoices'
   get 'dashboard/billing'
@@ -28,9 +34,6 @@ Rails.application.routes.draw do
   post 'create_subscription' => 'charges#create_subscription'
   post 'remove_me' => 'charges#remove_me'
   post 'update_billing' => 'charges#update_billing'
-
-  #Devise resources
-  devise_for :users, controllers: { registrations: "registrations" }
 
   #Stripe Webhooks Path
   mount StripeEvent::Engine, at: '/stripe/webhooks' # provide a custom path
