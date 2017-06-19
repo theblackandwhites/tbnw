@@ -22,7 +22,7 @@
   	<% else %>
       <% if user_signed_in? %>
 
-        <% if current_user.suspended? && if !current_page?(edit_user_registration_path) %>
+        <% if current_user.suspended? && !current_page?(edit_user_registration_path) %>
           <div class="alert alert-danger" style="position: fixed; z-index: 2; width: 100%;">
             <div class="container-fluid">
               <div class="text-center">
