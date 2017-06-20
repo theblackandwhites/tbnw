@@ -5,7 +5,7 @@ class WorkshopsController < ApplicationController
   # GET /workshops
   # GET /workshops.json
   def index
-    @workshops = Workshop.all
+    @workshops = Workshop.all.order("start_date DESC")
   end
 
   # GET /workshops/1
