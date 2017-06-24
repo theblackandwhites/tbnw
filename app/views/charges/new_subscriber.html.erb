@@ -63,6 +63,11 @@ svg{
 
 					<div class="card-content">
 						<%= form_tag create_subscription_path, :method => :post, :id => 'payment-form'  do %>
+							<% if flash[:error].present? %>
+						      <div id="error_explanation">
+						        <p><%= flash[:error] %></p>
+						      </div>
+						    <% end %>
 							<div class="form-row">
 								<label for="card-element">
 									Credit or debit card
