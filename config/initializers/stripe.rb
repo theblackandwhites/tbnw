@@ -28,7 +28,7 @@ class SucceededCharges
 		@charge.credit_card_last_4 = charge.source.last4
 		@charge.save
 
-		gibbon = Gibbon::Request.new(api_key: "0a9ffb6db9a6a723e4f0841f18dc3636-us15")
+		gibbon = Gibbon::Request.new(api_key: ENV["mailchimp_api_key"])
 		gibbon.timeout = 30
 		gibbon.open_timeout = 30
 		gibbon.lists("4c140da556").members.create(body: {email_address: @user.email, status: "subscribed", merge_fields: {FNAME: @user.first_name, LNAME: @user.last_name}})

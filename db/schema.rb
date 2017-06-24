@@ -163,9 +163,9 @@ ActiveRecord::Schema.define(version: 20170614111824) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.date     "start_date"
-    t.decimal  "start_hour"
-    t.decimal  "start_minute"
-    t.decimal  "start_second"
+    t.integer  "start_hour"
+    t.integer  "start_minute"
+    t.integer  "start_second"
     t.boolean  "status_closed"
   end
 

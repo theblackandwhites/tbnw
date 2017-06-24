@@ -129,7 +129,7 @@ class ChargesController < ApplicationController
 
 
 
-    Stripe.api_key = ENV["stripe_seceret_key"]
+    Stripe.api_key = ENV["stripe_seceret_key"]  
     @user = current_user
 
     @useremail = Digest::MD5.hexdigest(@user.email)
@@ -142,10 +142,10 @@ class ChargesController < ApplicationController
       @user.destroy
     end
 
-    gibbon = Gibbon::Request.new(api_key: "0a9ffb6db9a6a723e4f0841f18dc3636-us15")
+    gibbon = Gibbon::Request.new(api_key: ENV["mailchimp_api_key"])
     gibbon.timeout = 30
     gibbon.open_timeout = 30
-    gibbon.lists("4c140da556").members(@useremail).update(body: { status: "unsubscribed" })
+    gibbon.lists(ENV["mailchimp_list_id"]).members(@useremail).update(body: { status: "unsubscribed" })
 
     redirect_to root_path
 
