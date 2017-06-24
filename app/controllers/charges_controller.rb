@@ -124,16 +124,13 @@ class ChargesController < ApplicationController
       # Some other error; display an error message.
       flash[:notice] = 'An error occurred.'
 
-      if e = nil
-      #Add stripe_id, subscription_id to user
-      @user.update_attributes(:stripe_id => customer.id, :stripe_subscription_id => subscription.id)
-      @user.save
 
-      #Redirect to finish set up
-      redirect_to edit_user_registration_path
-      else
-        redirect_to new_subscriber_path
-      end
+    #Add stripe_id, subscription_id to user
+    @user.update_attributes(:stripe_id => customer.id, :stripe_subscription_id => subscription.id)
+    @user.save
+
+    #Redirect to finish set up
+    redirect_to edit_user_registration_path
 
   end
 
