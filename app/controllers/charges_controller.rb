@@ -97,7 +97,7 @@ class ChargesController < ApplicationController
     #Get creditcard params
     token = params[:stripeToken]
 
-    begin
+    
       #Create customer
       customer = Stripe::Customer.create(
         :email => current_user.email,
@@ -123,18 +123,17 @@ class ChargesController < ApplicationController
       rescue => e
       # Some other error; display an error message.
       flash[:notice] = 'An error occurred.'
-  end
 
-    
-    
+      if e = nil
+      #Add stripe_id, subscription_id to user
+      @user.update_attributes(:stripe_id => customer.id, :stripe_subscription_id => subscription.id)
+      @user.save
 
-
-    #Add stripe_id, subscription_id to user
-    @user.update_attributes(:stripe_id => customer.id, :stripe_subscription_id => subscription.id)
-    @user.save
-
-    #Redirect to finish set up
-    redirect_to edit_user_registration_path
+      #Redirect to finish set up
+      redirect_to edit_user_registration_path
+      else
+        redirect_to new_subscriber_path
+      end
 
   end
 
