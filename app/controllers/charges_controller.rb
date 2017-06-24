@@ -97,27 +97,36 @@ class ChargesController < ApplicationController
     #Get creditcard params
     token = params[:stripeToken]
 
-    #Create customer
-    customer = Stripe::Customer.create(
-      :email => current_user.email,
-      :source => token,
-    )
+    begin
+      #Create customer
+      customer = Stripe::Customer.create(
+        :email => current_user.email,
+        :source => token,
+      )
 
-    #Assign customer to a subscription plan
-    subscription = Stripe::Subscription.create(
-    :customer => customer.id,
-    :plan => "basic",
-    )
-
-    #Charge customer $1
-    charge = Stripe::Charge.create(
-      :amount => 100,
-      :currency => "aud",
+      #Assign customer to a subscription plan
+      subscription = Stripe::Subscription.create(
       :customer => customer.id,
-    )
+      :plan => "basic",
+      )      
 
-    rescue Stripe::CardError => e
-    flash[:error] = e.message
+      #Charge customer $1
+      charge = Stripe::Charge.create(
+        :amount => 100,
+        :currency => "aud",
+        :customer => customer.id,
+      )
+
+      rescue Stripe::CardError => e
+      flash[:error] = e.message
+
+      rescue => e
+      # Some other error; display an error message.
+      flash[:notice] = 'An error occurred.'
+  end
+
+    
+    
 
 
     #Add stripe_id, subscription_id to user
