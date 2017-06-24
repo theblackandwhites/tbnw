@@ -116,6 +116,10 @@ class ChargesController < ApplicationController
       :customer => customer.id,
     )
 
+    rescue Stripe::CardError => e
+    flash[:error] = e.message
+
+
     #Add stripe_id, subscription_id to user
     @user.update_attributes(:stripe_id => customer.id, :stripe_subscription_id => subscription.id)
     @user.save

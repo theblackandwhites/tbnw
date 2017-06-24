@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+match "*path" => redirect("https://www.mysite.com/%{path}"), :constraints => { :protocol => "http://" }
+match "*path" => redirect("https://www.mysite.com/%{path}"), :constraints => { :subdomain => "" }
 
   #Devise resources
   devise_for :users, controllers: { registrations: "registrations" }
