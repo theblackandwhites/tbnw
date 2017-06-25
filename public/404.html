@@ -1,177 +1,354 @@
-<html lang="en-us" class="no-js">
-<head>
-<meta charset="utf-8"><title>404 EEEK</title>
-<meta name="description" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit."><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="author" content="Madeon08">
-<script src="http://cdn.themehelite.com/themeforest/404doz/js/modernizr.js"></script> 
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <link rel="stylesheet" media="screen" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600" />
+    <link rel="stylesheet" media="screen" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
 
-<style>
-  html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section,main{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}table{border-collapse:collapse;border-spacing:0}body{font-family:Montserrat,"Helvetica Neue","Lucida Grande",Arial,Verdana,sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;-webkit-overflow-scrolling:touch;overflow:auto;position:static;z-index:-2;padding:0;margin:0;background:#FF1D4D}p,a{margin:10px 0;font-size:18px;color:white}a{-webkit-transition:all 0.2s cubic-bezier(0.42, 0, 0.58, 1);-moz-transition:all 0.2s cubic-bezier(0.42, 0, 0.58, 1);-ms-transition:all 0.2s cubic-bezier(0.42, 0, 0.58, 1);-o-transition:all 0.2s cubic-bezier(0.42, 0, 0.58, 1);transition:all 0.2s cubic-bezier(0.42,0,0.58,1);cursor:pointer;text-decoration:none;color:rgba(255,29,77,0.6)}a:hover{color:#ff1d4d !important;text-decoration:none !important;outline:none !important}a:active,a:focus{outline:none !important;text-decoration:none !important;color:rgba(255,29,77,0.6)}#container{background:#20232d;border:30px solid #FF1D4D;position:absolute;height:100%;width:100%;left:0;top:0}#container .overlay{position:absolute;background-repeat:repeat;opacity:0.1;width:100%;height:100%}#container .item-title{position:absolute;z-index:0;left:0;padding:0;top:50vh;width:100%;padding:0 5%;-webkit-transition:all 0.3s cubic-bezier(0, 0, 0.58, 1);-moz-transition:all 0.3s cubic-bezier(0, 0, 0.58, 1);-ms-transition:all 0.3s cubic-bezier(0, 0, 0.58, 1);-o-transition:all 0.3s cubic-bezier(0, 0, 0.58, 1);transition:all 0.3s cubic-bezier(0, 0, 0.58, 1);-webkit-transform:translateY(-50%);-moz-transform:translateY(-50%);-ms-transform:translateY(-50%);-o-transform:translateY(-50%);transform:translateY(-50%);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;opacity:1;visibility:visible}#container .item-title #message{max-width:600px;min-height:300px;margin:0 auto}#container .item-title #message p:first-child{font-size:90px;font-weight:700}#container .item-title .link-bottom{margin:0 auto;max-width:600px}#container .item-title .link-bottom .link-icon{margin-right:10px;font-size:22px}@media only screen and (max-width: 480px){#container{min-height:100%;height:auto}#container .overlay{min-height:100%;height:auto}#container .item-title{padding:100px 5%;position:relative;top:0;-webkit-transform:translateY(0);-moz-transform:translateY(0);-ms-transform:translateY(0);-o-transform:translateY(0);transform:translateY(0)}#container .item-title #message{min-height:240px}#container .item-title #message p:first-child{font-size:50px;font-weight:700}}
+
+    <style>
+     * {
+         -moz-box-sizing:border-box;
+         -webkit-box-sizing:border-box;
+         box-sizing:border-box;
+     }
+
+     html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+     abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp,
+     small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li,
+     fieldset, form, label, legend, caption, article, aside, canvas, details, figcaption, figure,  footer, header, hgroup,
+     menu, nav, section, summary, time, mark, audio, video {
+         margin:0;
+         padding:0;
+         border:0;
+         outline:0;
+         vertical-align:baseline;
+         background:transparent;
+     }
+
+     article, aside, details, figcaption, figure, footer, header, hgroup, nav, section {
+         display: block;
+     }
+
+     html {
+         font-size: 16px;
+         line-height: 24px;
+         width:100%;
+         height:100%;
+         -webkit-text-size-adjust: 100%;
+         -ms-text-size-adjust: 100%;
+         overflow-y:scroll;
+         overflow-x:hidden;
+     }
+
+     img {
+         vertical-align:middle;
+         max-width: 100%;
+         height: auto;
+         border: 0;
+         -ms-interpolation-mode: bicubic;
+     }
+
+     body {
+         min-height:100%;
+         -webkit-font-smoothing: subpixel-antialiased;
+     }
+
+     .clearfix {
+         clear:both;
+         zoom: 1;
+     }
+     .clearfix:before, .clearfix:after {
+         content: "\0020";
+         display: block;
+         height: 0;
+         visibility: hidden;
+     } 
+     .clearfix:after {
+         clear: both;
+     }
+    </style>
+    <style>
+  .plain.error-page-wrapper {
+    font-family: 'Source Sans Pro', sans-serif;
+    background-color:#6355bc;
+    padding:0 5%;
+    position:relative;
+  }
+
+  .plain.error-page-wrapper .content-container {
+    -webkit-transition: left .5s ease-out, opacity .5s ease-out;
+    -moz-transition: left .5s ease-out, opacity .5s ease-out;
+    -ms-transition: left .5s ease-out, opacity .5s ease-out;
+    -o-transition: left .5s ease-out, opacity .5s ease-out;
+    transition: left .5s ease-out, opacity .5s ease-out;
+    max-width:400px;
+    position:relative;
+    left:-30px;
+    opacity:0;
+  }
+
+  .plain.error-page-wrapper .content-container.in {
+    left: 0px;
+    opacity:1;
+  }
+
+  .plain.error-page-wrapper .head-line {
+    transition: color .2s linear;
+    font-size:48px;
+    line-height:60px;
+    color:rgba(255,255,255,.2);
+    letter-spacing: -1px;
+    margin-bottom: 5px;
+  }
+  .plain.error-page-wrapper .subheader {
+    transition: color .2s linear;
+    font-size:36px;
+    line-height:46px;
+    color:#fff;
+  }
+  .plain.error-page-wrapper hr {
+    height:1px;
+    background-color: rgba(255,255,255,.2);
+    border:none;
+    width:250px;
+    margin:35px 0;
+  }
+  .plain.error-page-wrapper .context {
+    transition: color .2s linear;
+    font-size:18px;
+    line-height:27px;
+    color:#fff;
+  }
+  .plain.error-page-wrapper .context p {
+    margin:0;
+  }
+  .plain.error-page-wrapper .context p:nth-child(n+2) {
+    margin-top:12px;
+  }
+  .plain.error-page-wrapper .buttons-container {
+    margin-top: 45px;
+    overflow: hidden;
+  }
+  .plain.error-page-wrapper .buttons-container a {
+    transition: color .2s linear, border-color .2s linear;
+    font-size:14px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color:#fff;
+    border:2px solid white;
+    border-radius: 99px;
+    padding:8px 30px 9px;
+    display: inline-block;
+    float:left;
+  }
+  .plain.error-page-wrapper .buttons-container a:hover {
+    background-color:rgba(255,255,255,.05);
+  }
+  .plain.error-page-wrapper .buttons-container a:first-child {
+    margin-right:25px;
+  }
+
+  @media screen and (max-width: 485px) {
+    .plain.error-page-wrapper .header {
+      font-size:36px;
+     }
+    .plain.error-page-wrapper .subheader {
+      font-size:27px;
+      line-height:38px;
+     }
+    .plain.error-page-wrapper hr {
+      width:185px;
+      margin:25px 0;
+     }
+
+    .plain.error-page-wrapper .context {
+      font-size:16px;
+      line-height: 24px;
+     }
+    .plain.error-page-wrapper .buttons-container {
+      margin-top:35px;
+    }
+
+    .plain.error-page-wrapper .buttons-container a {
+      font-size:13px;
+      padding:8px 0 7px;
+      width:45%;
+      text-align: center;
+    }
+    .plain.error-page-wrapper .buttons-container a:first-child {
+      margin-right:10%;
+    }
+  }
 </style>
+    <style>
 
-</head>
-<body>
-<div id="container">
-<div class="overlay">
+    .background-color {
+      background-color: rgba(224, 0, 97, 1) !important;
+    }
+
+
+    .primary-text-color {
+      color: rgba(255, 255, 255, 1) !important;
+    }
+
+    .secondary-text-color {
+      color: rgba(255, 255, 255, 1) !important;
+    }
+
+
+
+
+    .border-button {
+      color: #FFFFFF !important;
+      border-color: #FFFFFF !important;
+    }
+    .button {
+      background-color: #FFFFFF !important;
+      color:  !important;
+    }
+
+
+</style>
+  </head>
+  <body class="plain error-page-wrapper background-color background-image">
+    <div class="content-container">
+  <div class="head-line secondary-text-color">
+    404
+  </div>
+  <div class="subheader primary-text-color">
+    Oops, the page you're <br>
+    looking for does not exist.
+  </div>
+  <hr>
+  <div class="clearfix"></div>
+  <div class="context primary-text-color">
+    <!-- doesn't use context_content because it's ALWAYS the same thing -->
+    <p>
+      You may want to head back to the homepage.<br />
+      If you think something is broken, report a problem.
+    </p>
+  </div>
+  <div class="buttons-container">
+    <a class="border-button" href="https://www.theblackandwhites.com.au" target="_blank">Go To Homepage</a>
+  </div>
 </div>
-<div class="item-title">
-404 ERROR
-<div id="message">
-  Eeek I don't think you're supposed to be here. Follow me back to the homepage.
-</div>
-</div>
-</div>
 
-<script>
-  /*
-* DOZ - Creative 404 Pages
-* Build Date: August 2015
-* Author: Madeon08
-* Copyright (C) 2015 Madeon08
-* This is a premium product available exclusively here : http://themeforest.net/user/Madeon08/portfolio
-*/
+    <script>
+     function ErrorPage(container, pageType, templateName) {
+       this.$container = $(container);
+       this.$contentContainer = this.$container.find(templateName == 'sign' ? '.sign-container' : '.content-container');
+       this.pageType = pageType;
+       this.templateName = templateName;
+     }
 
-/* ------------------------------------- */
-/* LOVE Text Effect .................... */
-/* ------------------------------------- */
+     ErrorPage.prototype.centerContent = function () {
+       var containerHeight = this.$container.outerHeight()
+         , contentContainerHeight = this.$contentContainer.outerHeight()
+         , top = (containerHeight - contentContainerHeight) / 2
+         , offset = this.templateName == 'sign' ? -100 : 0;
 
-/* Codepen Link : http://codepen.io/wagerfield/pen/wftcE */
+       this.$contentContainer.css('top', top + offset);
+     };
 
-$(window).load(function() {
+     ErrorPage.prototype.initialize = function () {
+       var self = this;
 
-    (function () {
-    var $animate, $container, $message, $paragraph, MESSAGES, animate, initialise, scramble;
-    MESSAGES = [];
-    MESSAGES.push({
-        delay: 0,
-        text: 'ERROR 404 NOT FOUND'
-    });
-    MESSAGES.push({
-        delay: 800,
-        text: 'You may have mis-typed the URL.'
-    });
-    MESSAGES.push({
-        delay: 1800,
-        text: 'Or the page has been removed.'
-    });
-    MESSAGES.push({
-        delay: 3200,
-        text: 'Actually, there is nothing to see here...'
-    });
-    MESSAGES.push({
-        delay: 4800,
-        text: 'Click on the links below to do something, Thanks!'
-    });
-    $container = $('#container');
-    $message = $('#message');
-    $animate = $('#animate');
-    $paragraph = null;
-    scramble = function (element, text, options) {
-        var $element, addGlitch, character, defaults, ghostCharacter, ghostCharacters, ghostLength, ghostText, ghosts, glitchCharacter, glitchCharacters, glitchIndex, glitchLength, glitchProbability, glitchText, glitches, i, k, letter, object, order, output, parameters, ref, results, settings, shuffle, target, textCharacters, textLength, wrap;
-        defaults = {
-            probability: 0.2,
-            glitches: '-|/\\',
-            blank: '',
-            duration: text.length * 40,
-            ease: 'easeInOutQuad',
-            delay: 0
-        };
-        $element = $(element);
-        settings = $.extend(defaults, options);
-        shuffle = function () {
-            if (Math.random() < 0.5) {
-                return 1;
-            } else {
-                return -1;
-            }
-        };
-        wrap = function (text, classes) {
-            return '<span class="' + classes + '">' + text + '</span>';
-        };
-        glitchText = settings.glitches;
-        glitchCharacters = glitchText.split('');
-        glitchLength = glitchCharacters.length;
-        glitchProbability = settings.probability;
-        glitches = function () {
-            var j, len, results;
-            results = [];
-            for (j = 0, len = glitchCharacters.length; j < len; j++) {
-                letter = glitchCharacters[j];
-                results.push(wrap(letter, 'glitch'));
-            }
-            return results;
-        }();
-        ghostText = $element.text();
-        ghostCharacters = ghostText.split('');
-        ghostLength = ghostCharacters.length;
-        ghosts = function () {
-            var j, len, results;
-            results = [];
-            for (j = 0, len = ghostCharacters.length; j < len; j++) {
-                letter = ghostCharacters[j];
-                results.push(wrap(letter, 'ghost'));
-            }
-            return results;
-        }();
-        textCharacters = text.split('');
-        textLength = textCharacters.length;
-        order = function () {
-            results = [];
-            for (var j = 0; 0 <= textLength ? j < textLength : j > textLength; 0 <= textLength ? j++ : j--) {
-                results.push(j);
-            }
-            return results;
-        }.apply(this).sort(this.shuffle);
-        output = [];
-        for (i = k = 0, ref = textLength; 0 <= ref ? k < ref : k > ref; i = 0 <= ref ? ++k : --k) {
-            glitchIndex = Math.floor(Math.random() * (glitchLength - 1));
-            glitchCharacter = glitches[glitchIndex];
-            ghostCharacter = ghosts[i] || settings.blank;
-            addGlitch = Math.random() < glitchProbability;
-            character = addGlitch ? glitchCharacter : ghostCharacter;
-            output.push(character);
-        }
-        object = { value: 0 };
-        target = { value: 1 };
-        parameters = {
-            duration: settings.duration,
-            ease: settings.ease,
-            step: function () {
-                var index, l, progress, ref1;
-                progress = Math.floor(object.value * (textLength - 1));
-                for (i = l = 0, ref1 = progress; 0 <= ref1 ? l <= ref1 : l >= ref1; i = 0 <= ref1 ? ++l : --l) {
-                    index = order[i];
-                    output[index] = textCharacters[index];
-                }
-                return $element.html(output.join(''));
-            },
-            complete: function () {
-                return $element.html(text);
-            }
-        };
-        return $(object).delay(settings.delay).animate(target, parameters);
-    };
-    animate = function () {
-        var data, element, index, j, len, options;
-        for (index = j = 0, len = MESSAGES.length; j < len; index = ++j) {
-            data = MESSAGES[index];
-            element = $paragraph.get(index);
-            element.innerText = '';
-            options = { delay: data.delay };
-            scramble(element, data.text, options);
-        }
-    };
-    initialise = function () {
-        var index, j, len, text;
-        $animate.click(animate);
-        for (index = j = 0, len = MESSAGES.length; j < len; index = ++j) {
-            text = MESSAGES[index];
-            $message.append('<p>');
-        }
-        $paragraph = $container.find('p');
-        animate();
-    };
-    initialise();
-}.call(this));
+       this.centerContent();
+       this.$container.on('resize', function (e) {
+         e.preventDefault();
+         e.stopPropagation();
+         self.centerContent();
+       });
 
-});
-</script>
+       // fades in content on the plain template
+       if (this.templateName == 'plain') {
+         window.setTimeout(function () {
+           self.$contentContainer.addClass('in');
+         }, 500);
+       }
+
+       // swings sign in on the sign template
+       if (this.templateName == 'sign') {
+         $('.sign-container').animate({textIndent : 0}, {
+           step : function (now) {
+             $(this).css({
+               transform : 'rotate(' + now + 'deg)',
+               'transform-origin' : 'top center'
+             });
+           },
+           duration : 1000,
+           easing : 'easeOutBounce'
+         });
+       }
+     };
+
+
+     ErrorPage.prototype.createTimeRangeTag = function(start, end) {
+       return (
+         '<time utime=' + start + ' simple_format="MMM DD, YYYY HH:mm">' + start + '</time> - <time utime=' + end + ' simple_format="MMM DD, YYYY HH:mm">' + end + '</time>.'
+       )
+     };
+
+
+     ErrorPage.prototype.handleStatusFetchSuccess = function (pageType, data) {
+       if (pageType == '503') {
+         $('#replace-with-fetched-data').html(data.status.description);
+       } else {
+         if (!!data.scheduled_maintenances.length) {
+           var maint = data.scheduled_maintenances[0];
+           $('#replace-with-fetched-data').html(this.createTimeRangeTag(maint.scheduled_for, maint.scheduled_until));
+           $.fn.localizeTime();
+         }
+         else {
+           $('#replace-with-fetched-data').html('<em>(there are no active scheduled maintenances)</em>');
+         }
+       }
+     };
+
+
+     ErrorPage.prototype.handleStatusFetchFail = function (pageType) {
+       $('#replace-with-fetched-data').html('<em>(enter a valid StatusPage.io url)</em>');
+     };
+
+
+     ErrorPage.prototype.fetchStatus = function (pageUrl, pageType) {
+       //console.log('in app.js fetch');
+       if (!pageUrl || !pageType || pageType == '404') return;
+
+       var url = ''
+         , self = this;
+
+       if (pageType == '503') {
+         url = pageUrl + '/api/v2/status.json';
+       }
+       else {
+         url = pageUrl + '/api/v2/scheduled-maintenances/active.json';
+       }
+
+       $.ajax({
+         type : "GET",
+         url : url,
+       }).success(function (data, status) {
+         //console.log('success');
+         self.handleStatusFetchSuccess(pageType, data);
+       }).fail(function (xhr, msg) {
+         //console.log('fail');
+         self.handleStatusFetchFail(pageType);
+       });
+
+     };
+     var ep = new ErrorPage('body', "404", "plain");
+     ep.initialize();
+
+     // hack to make sure content stays centered >_<
+     $(window).on('resize', function() {
+       $('body').trigger('resize')
+     });
+
+    </script>
+
+    
+  </body>
+</html>
