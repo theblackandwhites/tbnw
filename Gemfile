@@ -15,12 +15,12 @@ gem "font-awesome-rails"
 gem 'material_icons'
 gem 'redis'
 gem 'figaro'
-gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+gem 'stripe'
 gem 'stripe_event'
 gem 'cloudinary'
 gem 'attachinary'
 gem 'cancancan', '~> 1.10'
-gem 'gibbon', github: "amro/gibbon" #Mailchimp wrapper
+gem 'gibbon'
 gem 'prawn'
 
 group :development, :test do
