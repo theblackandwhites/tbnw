@@ -8,7 +8,11 @@
 
     <div class="row">
       <% @workshops.take(9).each do |workshop| %>
-        <%= raw workshop.widget_embed %>
+
+        <div class="col-md-3">
+          <%= raw workshop.widget_embed %>
+        </div>
+
       <% end %>
     </div>
   </div>
