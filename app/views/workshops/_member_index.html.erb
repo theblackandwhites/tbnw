@@ -1,4 +1,3 @@
-       <% @workshops.limit(1).each do |workshop| %>
       <div class="row">
         <div class="col-md-8 col-md-offset-2 text-center">
           <h2 class="title">Welcome to our wingman workshops</h2>
@@ -10,16 +9,7 @@
       <div class="row">
 
        
-        
-          <div class="col-md-4 col-md-offset-2">
-            <%= raw workshop.widget_embed %>
-          </div>
-
-        <% end %>
-
-        
-
-        <div class="col-md-5">
+        <div class="col-md-4">
           <div class="info info-horizontal">
             <div class="icon icon-info">
               <i class="material-icons">cloud_done</i>
@@ -31,7 +21,8 @@
               </p>
             </div>
               </div>
-
+        </div>
+        <div class="col-md-4">
           <div class="info info-horizontal">
             <div class="icon icon-primary">
               <i class="material-icons">free_breakfast</i>
@@ -43,7 +34,8 @@
               </p>
             </div>
           </div>
-
+        </div>
+        <div class="col-md-4">
           <div class="info info-horizontal">
             <div class="icon icon-rose">
               <i class="material-icons">cast</i>
