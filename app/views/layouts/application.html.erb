@@ -22,7 +22,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <% if current_page?(new_user_registration_path) || current_page?(new_user_session_path) %>
     <body class="signup-page" >
   <% else %>
-    <body class="section-white" >
+    <% if current_page?(workshops_path) %>
+      <body class="section-white" data-no-turbolink="true">
+    <% else %>
+      <body class="section-white" >
+    <% end %>
   <% end %>
   <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MT3WDGR"
