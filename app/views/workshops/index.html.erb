@@ -22,16 +22,56 @@
                 margin: auto !important;
                 text-align: center !important;
               }
+
+              .js-embeder-under{
+                position: absolute;
+                z-index: 1;
+                width: 100%;
+                text-align: center;
+                padding-top: 150px;
+              }
+
+              .js-embeder-over{
+                position: absolute;
+                z-index: 2;
+                width: 100%;
+                text-align: center;
+                padding-top: 150px;
+              }
+
             </style>
           <% else %>
             <style>
               .signup_btn-workshop{
                 display: none !important;
               }
+              
+              .js-embeder-under{
+                position: absolute;
+                z-index: 1;
+                width: 100%;
+                text-align: center;
+                padding-top: 150px;
+              }
+
+              .js-embeder-over{
+                position: absolute;
+                z-index: 2;
+                width: 100%;
+                text-align: center;
+                padding-top: 150px;
+              }
             </style>
           <% end %>
 
-          <%= raw workshop.widget_embed %>
+          <div class="js-embeder-under">
+            <i class="fa fa-cog fa-spin fa-3x fa-fw"></i>
+            <span class="sr-only">Loading...</span>
+          </div>
+          <div class="js-embeder-over">
+            <%= raw workshop.widget_embed %>
+          </div>
+
           <div class="signup_btn-workshop">
             <%= link_to "Start $1 Trial", new_user_registration_path, class: "btn btn-rounded btn-rose" %>
           </div>
