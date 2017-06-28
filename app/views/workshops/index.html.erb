@@ -17,3 +17,111 @@
     </div>
   </div>
 </div>
+
+
+
+<div id="bigmarker-conference-widget-container7de7ace647b1a"></div>
+
+<script>
+  
+  (function() {
+
+  // Localize jQuery variable
+  var jQuery;
+
+  /******** Load jQuery if not present *********/
+  if (window.jQuery === undefined || window.jQuery.fn.jquery !== '1.10.2') {
+    var script_tag = document.createElement('script');
+    script_tag.setAttribute('type', 'text/javascript');
+    script_tag.setAttribute('src', 'https://www.bigmarker.com/assets/jquery-1.10.2.min.js');
+    if (script_tag.readyState) {
+      script_tag.onreadystatechange = function () { // For old versions of IE
+        if (this.readyState == 'complete' || this.readyState == 'loaded') {
+          scriptLoadHandler();
+        }
+      };
+    } else { // Other browsers
+      script_tag.onload = scriptLoadHandler;
+    }
+    // Try to find the head, otherwise default to the documentElement
+    (document.getElementsByTagName('head')[0] || document.documentElement)
+              .appendChild(script_tag);
+  } else {
+    // The jQuery version on the window is the one we want to use
+    jQuery = window.jQuery;
+    main();
+  }
+
+  /******** Called once jQuery has loaded ******/
+  function scriptLoadHandler() {
+    // Restore $ and window.jQuery to their previous values and store the
+    // new jQuery in our local jQuery variable
+    jQuery = window.jQuery.noConflict(true);
+    // Call our main function
+    main();
+  }
+
+  /******** Our main function ********/
+  function main() {
+    jQuery(document).ready(function($) {
+
+      var add_theme = function(bw_container) {
+        //bw_container.css('width', '480px');
+        //$('.bw-button', bw_container).css('background', '#35a35c');
+        //$(bw_container).css('border', '1px solid #35a35c');
+        $('.bw-h2', bw_container).css('color', '#35a35c');
+        $('.bw-button a').css('background', '#35a35c');
+      }
+
+      var css_link = $('<link>', {
+        rel: 'stylesheet',
+        type: 'text/css',
+        href: 'https://www.bigmarker.com/assets/widget_script_conference.css'
+      });
+      css_link.appendTo('head');
+
+      var html;
+html ='<div class="bigmaarker-embed-conference-event">';
+html +=  '<div class="bigmarker-embed-conference-event-container">';
+html +=    '<div class="bw-box">';
+html +=      '<div class="bw-photo">';
+html +=        '<img alt="116329-1498627154" src="https://d5ln38p3754yc.cloudfront.net/conference_icons/116329/large/116329-1498627154.png?1498627154" />';
+html +=        '<div class="bw-photo-box">';
+html +=          '<div class="bw-photo-box-in">';
+html +=            '<div class="bw-photo-title">';
+html +=              'Wingman Workshop #04';
+html +=            '</div>';
+html +=            '<div class="bw-photo-date">';
+html +=              'July 26,  9:00 am AEST';
+html +=            '</div>';
+html +=          '</div>';
+html +=        '</div>';
+html +=      '</div>';
+html +=      '<div class="bw-conference-body-padding">';
+html +=        '<div class="bw-title">A web conference presented by</div>';
+html +=        '<div class="bw-title-community">';
+html +=          '<a target="_blank" href="https://www.bigmarker.com/the-black-whites">';
+html +=            'The Black &amp; Whites';
+html +=          '</a>';
+html +=        '</div>';
+html +=        '<div class="bw-description">';
+html +=          "<p>This Wingman Workshop was designed specifically for members of the Black & Whites. It\'s an opportunity for you as a small business owner to overcome any hurdles you might currently be having. During this workshop you\'ll have the opportunity to ask any questions you like and I\'ll do my best to answer them accordingly. <\/p> <p>Note: If I don\'t get to your question online, don\'t be too concerned I\'ll be responding to all questions within 24hrs of concluding the workshop.<\/p> <p>I hope you enjoy the wingman workshop.<\/p>";
+html +=        '</div>';
+html +=      '</div>';
+html +=    '</div>';
+html +=  '</div>';
+html +='</div>';
+var bw_container = $('#bigmarker-conference-widget-container7de7ace647b1a');
+bw_container.addClass('bw-conference bigmarker-conference-widget-container').html(html);
+
+add_theme(bw_container);
+//bw_container.css('min-width', '240px');
+//bw_container.css('width', '480px');
+$('.bw-photo img', bw_container).css('max-width', '100%');
+
+    });
+  }
+
+})(); // We call our anonymous function immediately
+
+</script>
