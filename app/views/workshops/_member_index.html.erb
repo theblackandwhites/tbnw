@@ -2,7 +2,7 @@
       <div class="row">
         <div class="col-md-8 col-md-offset-2 text-center">
           <h2 class="title">Welcome to our wingman workshops</h2>
-          <h5 class="description">The next wingman workshop is starting in <span style="color:#e91e63; font-weight: bold;"><%= pluralize((workshop.start_date - DateTime.now ).to_i, 'day')  %> </span> we'll send you reminder emails before it starts. So if you have any questions that need answering - this is your chance.</h5>
+          <h5 class="description">The next wingman workshop is starts soon. We'll send you reminder emails before it starts. So if you have any questions that need answering - this is your chance.</h5>
           <div class="section-space"></div>
         </div>
       </div>
@@ -12,21 +12,8 @@
        
         
           <div class="col-md-5 col-md-offset-1">
-          <div class="card card-background" style="background-color:black;">
-            <a href="#pablo">
-            </a>
-            <div class="card-content">
-              <label class="label label-rose">Starts in <%= pluralize((workshop.start_date - DateTime.now ).to_i, 'day')  %></label>
-              <%= link_to workshop_path(workshop) do %>
-                <h3 class="card-title">Wingman Workshop #<%= workshop.id %></h3>
-              <% end %>
-              <p class="card-description">
-                We'll be starting our next wingman workshop on<br /> <span style="font-weight: bold; color: #fff;"><%= workshop.start_date.strftime("%B %d, %Y") %></span> at <span style="font-weight: bold; color: #fff;"><%= workshop.start_time %></span>
-              </p>
-              <%= link_to "Enter Workshop", workshop_path(workshop), class: "btn btn-primary btn-round " %>
-            </div>
+          <%= workshop.widget_embed %>
           </div>
-        </div>
 
         <% end %>
 

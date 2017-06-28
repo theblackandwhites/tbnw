@@ -72,6 +72,6 @@ class WorkshopsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def workshop_params
-      params.require(:workshop).permit(:start_time, :finish_time, :start_date, :start_hour, :start_minute, :start_second, :status_closed)
+      params.require(:workshop).permit(:start_time, :finish_time, :start_date, :start_hour, :start_minute, :start_second, :status_closed, :webinar_embed, :widget_embed)
     end
 end

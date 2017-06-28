@@ -11,20 +11,15 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :start_time %>
-    <%= f.text_field :start_time %>
+  <div class="form-group">
+    <%= f.label :widget_embed %>
+    <%= f.text_field :widget_embed, class: 'form-control' %>
   </div>
 
-    <div class="field">
-    <%= f.label :start_date %>
-    <%= f.date_field :start_date %>
-  </div>
 
-      <div class="field">
-    
-    <%= f.check_box :status_closed %>
-    <%= f.label :status_closed %>
+  <div class="form-group">
+    <%= f.label :webinar_embed %>
+    <%= f.text_field :webinar_embed, class: 'form-control' %>
   </div>
 
   
