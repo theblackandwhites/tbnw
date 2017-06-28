@@ -10,16 +10,31 @@
       <% @workshops.take(9).each do |workshop| %>
 
         <div class="col-md-3 col-sm-6 col-xs-12">
-        
+
           <% if !user_signed_in? %>
             <style>
-              .bw-button {
+              .bw-button, .bw-conference-body-padding {
+                display: none !important;
+              }
+              .signup_btn-workshop{
+                display: block !important;
+                margin-top: 20px !important;
+                margin: auto !important;
+                text-align: center !important;
+              }
+            </style>
+          <% else %>
+            <style>
+              .signup_btn-workshop{
                 display: none !important;
               }
             </style>
-            <%= raw workshop.widget_embed %>
           <% end %>
 
+          <%= raw workshop.widget_embed %>
+          <div class="signup_btn-workshop">
+            <%= link_to "Start $1 Trial", new_user_registration_path, class: "btn btn-rounded btn-rose" %>
+          </div>
         </div>
 
       <% end %>
