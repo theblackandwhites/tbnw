@@ -1,53 +1,66 @@
-<%= form_for(hack) do |f| %>
-  <% if hack.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(hack.errors.count, "error") %> prohibited this hack from being saved:</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <%= form_for(hack) do |f| %>
+        <% if hack.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(hack.errors.count, "error") %> prohibited this hack from being saved:</h2>
 
-      <ul>
-      <% hack.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+            <ul>
+            <% hack.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="form-group">
+          <%= f.label :video_embed_code %>
+          <%= f.text_field :video_embed_code, class: "form-control" %>
+        </div>
+
+
+        <div class="form-group">
+          <%= f.label :thumb %>
+          <%= f.text_field :thumb, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :members_only %>
+        </div>
+
+        <div class="togglebutton">
+        <label>
+            <%= f.check_box :members_only, class: "form-control" %>
+            Members Only
+        </label>
+      </div>
+
+        <div class="form-group">
+          <%= f.label :title %>
+          <%= f.text_field :title, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :description %>
+          <%= f.trix_editor :description, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :links %>
+          <%= f.trix_editor :links, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :category_id %>
+          <%= f.collection_select :category_id, Category.all, :id, :title, prompt: true, class: "form-control" %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit %>
+        </div>
+      <% end %> 
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :video_embed_code %>
-    <%= f.text_field :video_embed_code %>
   </div>
+</div>
 
-
-  <div class="field">
-    <%= f.label :thumb %>
-    <%= f.text_field :thumb %>
-  </div>
-
-  <div class="field">
-    <%= f.label :members_only %>
-    <%= f.check_box :members_only %>
-  </div>
-
-  <div class="field">
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-  </div>
-
-  <div class="field">
-    <%= f.label :description %>
-    <%= f.trix_editor :description %>
-  </div>
-
-  <div class="field">
-    <%= f.label :links %>
-    <%= f.trix_editor :links %>
-  </div>
-
-  <div class="field">
-    <%= f.label :category_id %>
-    <%= f.collection_select :category_id, Category.all, :id, :title, prompt: true %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
