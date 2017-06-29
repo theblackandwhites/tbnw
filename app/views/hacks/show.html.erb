@@ -35,7 +35,10 @@
         <h3 class="title"><%= @hack.title %></h3>
         <h5 class="description"><%= raw @hack.description %></h5>
         <hr>
-        <h4 class="title">Related links and resources</h4>
+
+        <% if @hack.links? %>
+          <h4 class="title">Related links and resources</h4>
+        <% end %>
         <h5 class="description">
 
         <% if @hack.members_only == true && current_user.suspended == false %>
