@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require trix
 //= require particles.min
 //= require bootstrap-sprockets
 //= require turbolinks

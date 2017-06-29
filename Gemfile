@@ -22,6 +22,7 @@ gem 'attachinary'
 gem 'cancancan', '~> 1.10'
 gem 'gibbon'
 gem 'prawn'
+gem 'trix'
 
 group :development, :test do
   gem 'byebug'
