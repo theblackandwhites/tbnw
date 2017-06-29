@@ -43,13 +43,13 @@
 
         <% if @hack.members_only == true && current_user.suspended == false %>
         <% if user_signed_in? %>
-          <%= @hack.links %>
+          <%= @hack.links.html_safe %>
         <% else %>
            <%= link_to "SIGN UP TO VIEW RESOURCES", new_user_registration_path, class: "btn btn-lg btn-rose btn-rounded" %>
         <% end %>
       <% else %>
         <% if @hack.links? %>
-          <%= raw @hack.links %>
+          <%= raw @hack.links.html_safe %>
         <% end %>
       <% end %>
 
@@ -120,7 +120,7 @@
               <% end %>
             <% end %>
 
-            <div style="margin-bottom: 20px; padding-right: 20px;"><p><%= comment.body %></p></div>
+            <div style="margin-bottom: 20px; padding-right: 20px;"><p><%= comment.body.html_safe %></p></div>
 
             <div class="row">
               <div class="col-md-8 col-md-offset-3" style="background-color: #fcfcfc; padding: 5px 15px; -webkit-border-top-left-radius: 5px; -webkit-border-top-right-radius: 5px; -moz-border-radius-topleft: 5px; -moz-border-radius-topright: 5px; border-top-left-radius: 5px; border-top-right-radius: 5px;">
