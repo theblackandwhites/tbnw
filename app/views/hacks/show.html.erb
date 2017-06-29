@@ -33,7 +33,7 @@
 
       <div class="col-md-4">
         <h3 class="title"><%= @hack.title %></h3>
-        <h5 class="description"><%= @hack.description %></h5>
+        <h5 class="description"><%= raw @hack.description %></h5>
         <hr>
         <h4 class="title">Related links and resources</h4>
         <h5 class="description">
@@ -45,7 +45,9 @@
            <%= link_to "SIGN UP TO VIEW RESOURCES", new_user_registration_path, class: "btn btn-lg btn-rose btn-rounded" %>
         <% end %>
       <% else %>
-        <%= @hack.links %>
+        <% if @hack.links? %>
+          <%= raw @hack.links %>
+        <% end %>
       <% end %>
 
           

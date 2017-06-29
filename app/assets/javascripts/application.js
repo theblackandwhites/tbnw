@@ -31,3 +31,4 @@
 //= require attachinary
 //= require main.js
 //= require jquery.itour.js
+//= require trix
