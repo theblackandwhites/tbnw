@@ -41,7 +41,7 @@
         <% end %>
       </h4>
       <p class="card-description">
-        <%= truncate_html hack.description, :length => 170 %>
+        <%= truncate(Rails::Html::FullSanitizer.new.sanitize(hack.description, length: 170)) %>
       </p>
     </div>
   </div>
