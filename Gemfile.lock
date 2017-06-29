@@ -189,6 +189,7 @@ GEM
     tilt (2.0.7)
     trix (0.10.1)
       rails
+    truncate_html (0.9.3)
     ttfunk (1.4.0)
     turbolinks (5.0.1)
       turbolinks-source (~> 5)
@@ -242,6 +243,7 @@ DEPENDENCIES
   stripe
   stripe_event
   trix
+  truncate_html
   turbolinks (~> 5)
   tzinfo-data
   uglifier (>= 1.3.0)
