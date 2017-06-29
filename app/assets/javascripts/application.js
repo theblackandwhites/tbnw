@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require trix
 //= require particles.min
 //= require bootstrap-sprockets
 //= require turbolinks
@@ -31,4 +32,3 @@
 //= require attachinary
 //= require main.js
 //= require jquery.itour.js
-//= require trix
