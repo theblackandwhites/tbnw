@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170614111824) do
+ActiveRecord::Schema.define(version: 20170709071257) do
 
   create_table "answers", force: :cascade do |t|
     t.text     "body"
@@ -35,6 +35,13 @@ ActiveRecord::Schema.define(version: 20170614111824) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.index ["attachinariable_type", "attachinariable_id", "scope"], name: "by_scoped_parent"
+  end
+
+  create_table "calenders", force: :cascade do |t|
+    t.string   "month"
+    t.text     "intro"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "categories", force: :cascade do |t|
@@ -68,6 +75,28 @@ ActiveRecord::Schema.define(version: 20170614111824) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "event_items", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.boolean  "training"
+    t.boolean  "support"
+    t.string   "color_hex"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "icon"
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string   "chronic_string"
+    t.integer  "calender_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "event_item_id"
+    t.integer  "order_number"
+    t.index ["calender_id"], name: "index_events_on_calender_id"
+    t.index ["event_item_id"], name: "index_events_on_event_item_id"
+  end
+
   create_table "hacks", force: :cascade do |t|
     t.string   "video_embed_code"
     t.boolean  "members_only"
@@ -89,6 +118,14 @@ ActiveRecord::Schema.define(version: 20170614111824) do
     t.datetime "updated_at",  null: false
     t.index ["user_id"], name: "index_messages_on_user_id"
     t.index ["workshop_id"], name: "index_messages_on_workshop_id"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.boolean  "public"
   end
 
   create_table "questions", force: :cascade do |t|
@@ -167,6 +204,8 @@ ActiveRecord::Schema.define(version: 20170614111824) do
     t.integer  "start_minute"
     t.integer  "start_second"
     t.boolean  "status_closed"
+    t.text     "widget_embed"
+    t.text     "webinar_embed"
   end
 
 end

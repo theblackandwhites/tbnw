@@ -1,39 +1,89 @@
-	<div id="particles-js"></div>
-	<div id="overlay">
+<div id="particles-js"></div>
+<div id="overlay">
     <div class="page-header">
 	        <div class="container">
 	            <div class="row">
 					<div class="col-lg-7 col-md-6">
-						<h1 class="title">Have you ever thought of hiring your very own marketing wingman?</h1>
-	                    <h4>This is your chance to invest in yourself, your business and your customers. Joining The Black &amp; Whites means that you're hiring your very own marketing wingman for just $97/month, no lock in contracts. My name is Josh and I'm all about support  &amp; training, showing small businesses how to unlock the true power of marketing; through consulting methods which you have never seen before!</h4>
+						<h1 class="title" style="font-size: 3.4em">The Black &amp; Whites provide online training &amp; support for small business, start-ups &amp; entrepreneurs.</h1>
+	                    
+
+	                    <!--<h4>This is your chance to invest in yourself, your business and your customers. The Black &amp; Whites provides online training and support for small business owners, entrepreneurs and start ups to for just $97/month, no lock in contracts. My name is Josh and I'm all about support  &amp; training, showing small businesses how to unlock the true power of marketing; through consulting methods which you have never seen before!</h4>-->
+
+	                    <div style="font-size: 18px; padding-top: 10px;">From graphic design and website development, to social media and marketing strategies, The Black &amp; Whites is a unique online platform designed to share knowledge, training and support with small business owners to build the fundamental skills to take your business to new heights.</div>
+
+	                    <!-- My perception of marketing is ecclectic and holistic.  I've worked for both marketing agencies and in marketing departments for other businesses. This gives me a unique advantage. Working for an agency my priorities were deadlines, budgets and building a profitable portfolio. On the flipside, working inside a small bussiness my focus was to attempt and repeat anything that worked. It didn't take a genious to figure out that there was a disconnect between what small business needed and what was being delivered. My dream was to align my buiness goals and KPI's with that of my clients, therefore only ever achieving success when my clients did.
+
+	                    my success is not a transaction but relied puerly on the success of my clients. 
+
+	                    an agency has it's own agender, budgets and business plan and it doesn't have a primary focus on the success of your business. -->
+
+	           
+
 	                    <br />
 						<!-- video modal -->
-						<button class="btn btn-success btn-raised btn-lg" data-toggle="modal" data-target="#myModal">
+						<!--<button class="btn btn-success btn-raised btn-lg" data-toggle="modal" data-target="#myModal">
 						    <i class="fa fa-play"></i> Let me introduce myself
-						</button>
+						</button>-->
+
+						<%= link_to "What's on this month", calenders_path, class: "btn btn-success btn-raised btn-lg" %>
+
 					</div>
-					<div class="col-lg-3 col-lg-offset-2 col-md-6">
-						<div class="card card-pricing card-raised" style="margin-bottom: 100px;">
+
+					<div class="col-lg-4 col-md-offset-1">
+						<div class="card card-raised" style="margin-bottom: 50px; margin-top: 20px;">
 							<div class="card-content">
-								<h6 class="category">Become a Member</h6>
+								<span style="font-size: 20px;"><br />Providing consulting and training for small business like you've never seen before.</span><br />
 								
-								<h3 class="card-title">$97/month</h3>
-								<p class="card-description">
-									<ul>
-										<li>Weekly <%= link_to "Wingman Workshops", workshops_path %> <br /><small>(live video Q&amp;A from your own home)</small></li>
-										<li><strong style="color: #E91E63;">NEW</strong> Weekly DIY <%= link_to "Hack Videos", hacks_path %></li>	
-										<li>24x7 Access to our <%= link_to "Support Forums", questions_path %></li>
-										<li>Access our <%= link_to "Customised Tools", root_path %></li>
-									</ul>
-								</p>
+								<div class="card-title" style="font-size: 24px; line-height: 42px; margin-top: 10px;">ONLY $97/month <span style="font-size: 12px; color: #e91e63; font-style: italic; ">TRY NOW FOR $1</span></div>
+									<div class="info-horizontal" style="margin-top: 20px;">
+										<div class="icon" style="margin-top: 0">
+											<i class="material-icons" style="color: #5cb85c; margin-top: 0;">check_circle</i>
+										</div>
+										<div class="">
+											<h5 class="info-title">Weekly Training Videos</h5>
+										</div>
+									</div>
+									<div class="info-horizontal">
+										<div class="icon" style="margin-top: 0;">
+											<i class="material-icons" style="color: #5cb85c; margin-top: 0;">check_circle</i>
+										</div>
+										<div class="">
+											<h5 class="info-title">24x7 Support Forum Access</h5>
+										</div>
+									</div>
+									<div class="info-horizontal">
+										<div class="icon" style="margin-top: 0;">
+											<i class="material-icons" style="color: #5cb85c; margin-top: 0;">check_circle</i>
+										</div>
+										<div class="">
+											<h5 class="info-title">Facebook Live Events</h5>
+										</div>
+									</div>
+									<div class="info-horizontal">
+										<div class="icon" style="margin-top: 0;">
+											<i class="material-icons" style="color: #5cb85c; margin-top: 0;">check_circle</i>
+										</div>
+										<div class="">
+											<h5 class="info-title">Exclusive Content</h5>
+										</div>
+									</div>
+									<div class="info-horizontal">
+										<div class="icon" style="margin-top: 0;">
+											<i class="material-icons" style="color: #5cb85c; margin-top: 0;">check_circle</i>
+										</div>
+										<div class="">
+											<h5 class="info-title">Live Chat Sessions</h5>
+										</div>
+									</div>
+
 								<%= link_to "30 DAY TRIAL JUST $1", new_user_registration_path, class: "btn btn-rose" %>
 							</div>
 						</div>
 					</div>
 	            </div>
           	</div>
+    	</div>
     </div>
-
 
 	<div class="main">
 		<div class="container">
@@ -41,8 +91,8 @@
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
                         <h2 class="title" style="margin-bottom: 0; padding-bottom: 0">Let's talk value</h2>
-                        <h5 style="line-height: 25px; margin-bottom: 40px;">Consulting for small Aussie businesses, like you've never experienced before!</h5>
-                        <h5 class="description">All members of The Black &amp; Whites unlock exclusive access to weekly training videos, support forums, weekly wingman workshops (Live video Q&amp;A) &amp; customised tools, that can help you get the most out of your marketing. Think of me as your very own marketing wingman. Someone that you can trust to provide you with the correct skills, knowledge  &amp; resources so you can watch your business boom!</h5>
+                        <h5 style="line-height: 25px; margin-bottom: 40px;">The Black &amp; Whites offer low cost, high value marketing consulting, support &amp; training for small businesses like you've never seen before! Learn how to lay a rock solid foundation so you don't have to rely on paying for new consumers. You'll also learn how to execute effective marketing campaigns. No more agencies, learn how to do everything yourself, quickly &amp; cost effectively. </h5>
+                        <h5 class="description">When you join The Black &amp; Whites you unlock exclusive access to  weekly training videos, support forums, live chat, live video &amp; resources which help you evolve into a more diverse, multi-skilled powerhouse. By giving you new skills, mountains of knowledge &amp; an abundance of support you'll not only save thousands, you'll also be investing in your own personal development. Think of it like an online course &amp; every subject revolves around your business.</h5>
                     </div>
                 </div>
 
@@ -53,8 +103,8 @@
 								<div class="icon icon-info">
 									<i class="material-icons">cast</i>
 								</div>
-								<h4 class="info-title">Wingman Workshops (Live Video Q&amp;A)</h4>
-								<p>My wingman workshops are hosted weekly via live video forum. Ask your questions from anywhere including the comfort of your own home, office or car and receive live feedback directly from me. I host wingman workshops at least once a week, which means you'll always have an opportunity to overcome any hurdles you may be facing during that week.</p>
+								<h4 class="info-title">Tons of Support</h4>
+								<div style="text-align: justify; text-justify: inter-word;">As a small business it's never a bad idea to have a shoulder to lean on. The problem is hiring a traditional consulting firm involves thousands of dollars &amp; lengthy contracts. The Black &amp; Whites strip away all the flesh leaving bare bones. With no contracts &amp; for just $97 a month you'll find a strong, experienced &amp; reassuring shoulder to lean on. Ask any question at anytime of day or night &amp; you'll have a comprehensive response within hours not days or weeks. Every week join our live chat sessions where you can ask your questions &amp; receive live answers immediatly.</div>
 							</div>
 						</div>
 
@@ -63,8 +113,8 @@
 								<div class="icon icon-success">
 									<i class="material-icons">movie_creation</i>
 								</div>
-								<h4 class="info-title">Weekly DIY Hack Videos</h4>
-								<p>These little DIY hack videos help you tackle the practical side of marketing. I show you how to quickly and easily create your own website, set up, send and track email campaigns, facebook advertising, google adwords and more. I know as a small business owner, your time and money is valuable. These hack videos have been designed so anyone can unlock the true power of marketing without having any technology background, which can save you and your business thousands.</p>
+								<h4 class="info-title">Online Training</h4>
+								<div style="text-align: justify; text-justify: inter-word;">Thinking about a little self improvement? Have no time or money to waste on a traditional online course? Learn the skills &amp; knowledge you need to take your business to the next level. The Black &amp; Whites release new training videos every week. Their designed specifically for small business owners, startups &amp; entrepreneurs to tackle the practical side of marketing. Each video is between 5-10 minutes long &amp; will teach you everything from designing your own posters &amp; business cards, engineering your own marketing database, building your own websites &amp; executing effective marketing campaigns.</div>
 							</div>
 						</div>
 
@@ -73,184 +123,105 @@
 								<div class="icon icon-danger">
 									<i class="material-icons">headset_mic</i>
 								</div>
-								<h4 class="info-title">Jam Packed with Support</h4>
-								<p>Joining The Black &amp; Whites unlocks 24x7 access to our support forums. Ask your question at anytime of the day or night. I understand that experience is power, so I have set up our support forum so that other members of the Black &amp; Whites can respond and contribute to your questions. This way you're gaining knowledge from a whole community of others who may have overcome similar problems.</p>
+								<h4 class="info-title">Content &amp; Resources</h4>
+								<div style="text-align: justify; text-justify: inter-word;">With years of experience and so much to talk about it made sense to start an online library. New articles, videos &amp; resources will be added every few days. We'll be filling this library as time goes on, everything you learn at The Black &amp; White's will be archived accordingly so you'll never have trouble referencing something from the past. </div>
 							</div>
 						</div>
 	                </div>
 				</div>
             </div>
+        </div>
+    
 
-        	
 
-	<div class="features-4">
-			<div class="row">
-				<div class="col-md-8 col-md-offset-2 text-center">
-					<h2 class="title">How do I make it work for you?</h2>
-					<h5 class="description">The Black &amp; Whites was designed so that you can access, learn and engage when it’s convenient for you; anytime and anywhere. Workshops are scheduled weekly, you'll be notified when a new training video has been released to keep you up to date. All the support tools and resources are readily available and super easy to access. Technology should be making our lives easier right?
-</h5>
-				</div>
+		
+
+	<div class="container">
+		 <div class="row">
+		 	<div class="col-md-8 col-md-offset-2 text-center">
+				<h2 class="title">Why you should join The Black &amp; Whites</h2>
 			</div>
 
-			<div class="row">
-
-				<div class="col-md-3 col-md-offset-1">
-		           	<div class="info info-horizontal">
-						<div class="icon icon-info">
-							<i class="material-icons">smartphone</i>
-						</div>
-						<div class="description">
-							<h4 class="info-title">Secure access from any device, anytime.</h4>
-							<p>Sit in your PJ's with a glass of wine or lock yourself away in your office with your headphones. Wherever you may be, you'll have easy access to training videos, support and resources. </p>
-						</div>
-		        	</div>
-
-					<div class="info info-horizontal">
-						<div class="icon icon-danger">
-							<i class="material-icons">group_add</i>
-						</div>
-						<div class="description">
-							<h4 class="info-title">It's a community</h4>
-							<p>Imagine a room full of like minded people, supporting, learning and helping each other. Your own community who is here to support you every step of the way. Your community is like a virtual soundboard - Share your own experience and learnings or create new connections.</p>
-						</div>
-					</div>
-
-					<div class="info info-horizontal">
-						<div class="icon icon-primary">
-							<i class="material-icons">trending_up</i>
-						</div>
-						<div class="description">
-							<h4 class="info-title">Constantly evolving</h4>
-							<p>The Black &amp; Whites is growing everyday. I am constantly adding training videos &amp; answering your questions. If you send out an SOS, I'll be there. You can count on The Black &amp; Whites for genuine support.</p>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-md-4">
-					<div class="phone-container">
-						<img src="https://res.cloudinary.com/theblackandwhites/image/upload/v1497507256/bnw/assets/iphone3.png" />
-					</div>
-				</div>
-
-				<div class="col-md-3">
-					<div class="info info-horizontal">
-						<div class="icon icon-success">
-							<i class="material-icons">school</i>
-						</div>
-						<div class="description">
-							<h4 class="info-title">I invest in YOU - <i>not</i> your business</h4>
-							<p>Anyone can tell you what you should be doing. But you're the only one who knows the true ins and outs of your business. I strive to teach you everything there is to know about unlocking and harnessing the true power of marketing for any business. So you never again have to rely on someone else.</p>
-						</div>
-					</div>
-
-					<div class="info info-horizontal">
-						<div class="icon icon-rose">
-							<i class="material-icons">hearing</i>
-						</div>
-						<div class="description">
-							<h4 class="info-title">There's no such thing as a stupid question</h4>
-							<p>That's right, I actually listen to all your concerns &amp; requests. If there's something you would like to see or learn, I'll work hard to make it possible.</p>
-						</div>
-					</div>
-
+		 	<div class="col-md-3">
+			 	<div class="card card-plain card-blog">
+					<div class="card-image">
+						
+							<img class="img img-raised" src="https://res.cloudinary.com/theblackandwhites/image/upload/v1497747207/bnw/assets/couple-finances-MM.jpg" />
 					
+					</div>
+
+					<div class="card-content">
+						<h4 class="card-title">
+							You'll save thousands			
+						</h4>
+						<p class="card-description">
+							Hiring a consultant or marketing expert will set you back tens of thousands! For just $97 a month you're likely to spend more on your coffee.
+						</p>
+					</div>
 				</div>
-			</div>
+		 	</div>
 
-	    </div>
- </div>
-
-<div class="container">
- <div class="row">
- <div class="col-md-8 col-md-offset-2 text-center">
-			<h2 class="title">Why you should join The Black &amp; Whites</h2>
-		</div>
-
- 	<div class="col-md-3">
-	 	<div class="card card-plain card-blog">
-			<div class="card-image">
-				
-					<img class="img img-raised" src="https://res.cloudinary.com/theblackandwhites/image/upload/v1497747207/bnw/assets/couple-finances-MM.jpg" />
-			
-			</div>
-
-			<div class="card-content">
-				<h4 class="card-title">
-					You'll save thousands			
-				</h4>
-				<p class="card-description">
-					Hiring a consultant or marketing expert will set you back tens of thousands! For just $97 a month you're likely to spend more on your coffee.
-				</p>
-			</div>
-		</div>
- 	</div>
-
-	 	<div class="col-md-3">
-		 	<div class="card card-plain card-blog">
-				<div class="card-image">
+		 	<div class="col-md-3">
+			 	<div class="card card-plain card-blog">
+					<div class="card-image">
+						
+							<img class="img img-raised" src="https://res.cloudinary.com/theblackandwhites/image/upload/v1497747215/bnw/assets/winning_culture_kids_race_car.jpg" />
 					
-						<img class="img img-raised" src="https://res.cloudinary.com/theblackandwhites/image/upload/v1497747215/bnw/assets/winning_culture_kids_race_car.jpg" />
-				
-				</div>
+					</div>
 
-				<div class="card-content">
-					<h4 class="card-title">
-						You're investing in yourself			
-					</h4>
-					<p class="card-description">
-						I am providing you with the skills, knowledge and resources so that you can unlock and harness the true power of marketing in any business, regardless of how fast technology is growing.
-					</p>
+					<div class="card-content">
+						<h4 class="card-title">
+							You're investing in yourself			
+						</h4>
+						<p class="card-description">
+							The Black &amp; Whites is providing you with the skills, knowledge and resources so that you can unlock and harness the true power of marketing in any business, regardless of how fast technology is growing.
+						</p>
+					</div>
 				</div>
-			</div>
+		 	</div>
+		 	<div class="col-md-3">
+			 	<div class="card card-plain card-blog">
+					<div class="card-image">
+							<img class="img img-raised" src="https://res.cloudinary.com/theblackandwhites/image/upload/v1497747221/bnw/assets/WomanTexting-1250x650.jpg" />
+					</div>
+					<div class="card-content">
+						<h4 class="card-title">
+							You can do it at home			
+						</h4>
+						<p class="card-description">
+							What better way to learn than in the comfort of your own home. Simply log in to your dashboard and start watching the training videos, ask questions or participate in our live events. 
+						</p>
+					</div>
+				</div>
+		 	</div>
+		 	<div class="col-md-3">
+			 	<div class="card card-plain card-blog">
+					<div class="card-image">
+						
+							<img class="img img-raised" src="https://res.cloudinary.com/theblackandwhites/image/upload/v1497747228/bnw/assets/images.jpg" />
+					
+					</div>
+
+					<div class="card-content">
+						<h4 class="card-title">
+							Australian Based		
+						</h4>
+						<p class="card-description">
+							Located on the Gold Coast, Australia. The Black &amp; Whites is a business you can confide in, one that you can trust and one that will stick by you.
+						</p>
+					</div>
+				</div>
+		 	</div>
 	 	</div>
-	 	<div class="col-md-3">
-		 	<div class="card card-plain card-blog">
-				<div class="card-image">
-					
-						<img class="img img-raised" src="https://res.cloudinary.com/theblackandwhites/image/upload/v1497747221/bnw/assets/WomanTexting-1250x650.jpg" />
-				
-				</div>
-
-				<div class="card-content">
-					<h4 class="card-title">
-						You can do it at home			
-					</h4>
-					<p class="card-description">
-						What better way to learn than in the comfort of your own home. Simply log in to your dashboard and start watching the training videos, ask questions or participate in our wingman workshops. 
-					</p>
-				</div>
-			</div>
-	 	</div>
-	 	<div class="col-md-3">
-		 	<div class="card card-plain card-blog">
-				<div class="card-image">
-					
-						<img class="img img-raised" src="https://res.cloudinary.com/theblackandwhites/image/upload/v1497747228/bnw/assets/images.jpg" />
-				
-				</div>
-
-				<div class="card-content">
-					<h4 class="card-title">
-						Australian Based		
-					</h4>
-					<p class="card-description">
-						Located on the Gold Coast, Australia. The Black &amp; Whites is a business you can confide in, one that you can trust and one that will stick by you.
-					</p>
-				</div>
-			</div>
-	 	</div>
- </div>
-</div>
-
-<div class="row" style="margin: 100px; padding-bottom: 100px;">
-	<div class="col-md-12 text-center">
-		<h2 class="title">TRIAL FOR 30 DAYS - JUST $1</h2>
-		<h4 class="title">YOU REALLY HAVE NOTHING TO LOSE, <i style="color: #E91E63">SEE YOU ON THE INSIDE!</i></h4>
-		<%= link_to "Sign Up", new_user_registration_path, class: "btn btn-lg btn-rose btn-round" %>
 	</div>
-</div>
-
-
+		<div class="row" style="margin: 100px; padding-bottom: 100px;">
+			<div class="col-md-12 text-center">
+				<h2 class="title">TRIAL FOR 30 DAYS - JUST $1</h2>
+				<h4 class="title">YOU REALLY HAVE NOTHING TO LOSE, <i style="color: #E91E63">SEE YOU ON THE INSIDE!</i></h4>
+				<%= link_to "Sign Up", new_user_registration_path, class: "btn btn-lg btn-rose btn-round" %>
+			</div>
+		</div>
+	</div>
 </div>
 
 

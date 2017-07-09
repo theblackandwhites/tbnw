@@ -1,0 +1,37 @@
+<%= form_for(event) do |f| %>
+  <% if event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+      <ul>
+      <% event.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :chronic_string %>
+    <%= f.text_field :chronic_string %>
+  </div>
+
+  <div class="field">
+    <%= f.label :event_item_id %>
+    <%= f.collection_select :event_item_id, EventItem.all, :id, :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :calender_id %>
+    <%= f.collection_select :calender_id, Calender.all, :id, :month %>
+  </div>
+
+  <div class="field">
+    <%= f.label :order_number %>
+    <%= f.number_field :order_number %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

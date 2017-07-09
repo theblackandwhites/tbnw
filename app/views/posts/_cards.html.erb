@@ -1,0 +1,46 @@
+<div class="col-md-3">
+  <div class="card card-blog card-rotate">
+    
+    <div class="rotating-card-container">
+      <div class="card-image">
+        <div class="front">
+          <img class="img" src="http://res.cloudinary.com/theblackandwhites/image/upload/c_crop,h_600,w_700/<%= post.thumb.path %>"/>
+        </div>
+
+        <div class="back back-background" style="background-image: url('http://res.cloudinary.com/theblackandwhites/image/upload/c_crop,h_600,w_700/<%= post.thumb.path %>');">
+          <div class="card-content">
+            <h5 class="card-title"></h5>
+            <div class="footer text-center">
+              <% if post.public == false %>
+                <% if user_signed_in? %>
+                  <%= link_to "Read Post", post_path(post), class: "btn btn-round btn-success" %>
+                <% else %>
+                  <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-round btn-rose" %>
+                <% end %>
+              <% else %>
+                <%= link_to "Read Post", post_path(post), class: "btn btn-round btn-success" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-content">
+      <h4 class="card-title">
+        <% if post.public == false %>
+          <% if user_signed_in? %>
+            <%= link_to post.title, post_path(post) %>
+          <% else %>
+            <%= post.title %>
+          <% end %>
+        <% else %>
+          <%= link_to post.title, post_path(post) %>
+        <% end %>
+      </h4>
+      <p class="card-description">
+        <%= truncate(Rails::Html::FullSanitizer.new.sanitize(post.description), length: 170) %>
+      </p>
+    </div>
+  </div>
+</div>

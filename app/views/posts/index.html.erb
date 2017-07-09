@@ -1,0 +1,22 @@
+<div class="projects-4" id="projects-4">
+  <div class="container">
+    <div class="row">
+      
+
+      <div class="col-md-8 col-md-offset-2 text-center">
+          <h2 class="title" style="margin-bottom: 0; padding-bottom: 0">Welcome to the library!</h2>
+          <h5 style="line-height: 25px; margin-bottom: 40px;">
+          Essentially The Black &amp; White's blog, I like to post here every few days. It's the perfect way to share my thoughts and experience with other like minded people.
+      </h5>
+      </div>
+
+      <div class="row">
+        <% @posts.each do |post| %>
+        <%= render 'posts/cards', :post => post %>
+        <% end %>
+      </div>
+
+
+    </div>
+  </div>
+</div>

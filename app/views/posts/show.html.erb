@@ -1,0 +1,32 @@
+<div class="projects-4" id="projects-4">
+  <div class="container">
+    <div class="row">
+      
+
+      <div class="col-md-4">
+        <h1 class="title"><%= @post.title %></h1>
+        <hr>   
+        <div class="row">
+          <div class="col-sm-4 pull-left">
+            <%= cl_image_tag("bnw/assets/me.jpg", :width=>100, :crop=>"scale") %>
+          </div>
+          <div class="col-sm-8 pull-right">
+            <p style="font-size: 20px; line-height: 20px;">Author: Josh Edgar<br />
+            <small style="font-size: 12px; line-height: 12px;">Founder of the Black &amp; Whites</small><br />
+            <small style="font-size: 12px; line-height: 12px;">Posted <%= time_ago_in_words(@post.created_at)%> ago</small><br />
+            <small style="font-size: 12px; line-height: 12px;"><i>"Don't steal my quote"</i></small><br />
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <img class="img" src="http://res.cloudinary.com/theblackandwhites/image/upload/c_crop,h_300,w_800/<%= @post.hero.path %>" width="100%"/>
+        <div style="margin-top: 20px; font-size: 16px;">
+          <%= raw @post.description %>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,44 @@
+<%= form_for(post) do |f| %>
+  <% if post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.trix_editor :description %>
+  </div>
+
+    <div class="form-group">
+    <%= f.label :public %>
+    <%= f.check_box :public, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :thumb %>
+    <%= f.attachinary_file_field :thumb %>
+    <small>600x700</small>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :hero %>
+    <%= f.attachinary_file_field :hero %>
+    <small>600x1600</small>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

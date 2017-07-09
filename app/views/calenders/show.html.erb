@@ -1,0 +1,280 @@
+
+<div class="projects-4" id="projects-4">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-9">
+				<div style="margin-bottom: 40px; font-size: 16px;">
+					<h2>Take a look at our <%= @calender.month %> calendar</h2>
+					<p>Here you'll find all the training and support touch points for the month of <%= @calender.month %>. All members get exclusive access to ALL touch points. Email reminders are sent before each event takes place so you're always in the loop. </p>
+				</div>	
+				<div class="timeline-centered">
+					<% @events.order(order_number: :asc).each do |event| %>
+						<article class="timeline-entry">
+							<div class="timeline-entry-inner">
+								<time class="timeline-time"></time>
+								<div class="timeline-icon" style="background-color: #<%= event.event_item.color_hex%>">
+									<i class="entypo-location"></i>
+								</div>
+								<div class="timeline-label" >
+									<h3><%=  event.event_item.title %></h3>
+									<h4><%= Chronic.parse(event.chronic_string, :ambiguous_time_range => :none).strftime("%A %d") %> AT 3:00pm</h4>
+									<div style="margin-top: 20px;">
+										<blockquote style="border-left:5px solid #<%= event.event_item.color_hex %>; font-size: 14px;"><%=  event.event_item.description %></blockquote>
+									</div>
+
+									<%= link_to "ACCESS EVERYTHING FOR JUST $1", new_user_registration_path, class: "btn btn-rose" %>
+
+								</div>
+							</div>
+						</article>
+					<% end %>
+				
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="side_banner">
+					
+						<div style="padding: 10px; color: #fff; background-color: #38495b; margin-top: 20px; -webkit-border-top-right-radius: 10px; -webkit-border-top-left-radius: 10px; -moz-border-radius-topright: 10px; -moz-border-radius-topleft: 10px; border-top-right-radius: 10px; border-top-left-radius: 10px; text-align: center;">
+
+							<h4 style="line-height: 24px; color: #fff;">Let us give you all the tools, knowledge &amp; resources so that you can grow your business.</h4>
+
+						</div>
+					<div style="padding: 10px; font-size: 15px; background-color: #f5f5f5;">
+						<i class="material-icons" style="color: #5cb85c">check_circle</i> Weekly Training Videos<br />
+						<i class="material-icons" style="color: #5cb85c">check_circle</i> 24x7 Support Forum Access<br />
+						<i class="material-icons" style="color: #5cb85c">check_circle</i> Facebook Live Events<br />
+						<i class="material-icons" style="color: #5cb85c">check_circle</i> Exclusive Content &amp; Resources<br />
+						<i class="material-icons" style="color: #5cb85c">check_circle</i> Live Chat Sessions<br />
+
+					</div>
+					<div style="padding: 10px; color: #fff; background-color: #E91E63; padding: 10px 0; -webkit-border-bottom-right-radius: 10px; -webkit-border-bottom-left-radius: 10px; -moz-border-radius-bottomright: 10px; -moz-border-radius-bottomleft: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; text-align: center;">
+						<span>Just $97 a month</span><br />
+						<span style="font-size: 26px;">Try now for just $1</span>
+						<%= link_to "TRY NOW", new_user_registration_path, class: "btn btn-white" %>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<style>
+	.timeline-centered {
+		position: relative;
+		margin-bottom: 30px;
+	}
+
+	.timeline-centered:before, .timeline-centered:after {
+		content: " ";
+		display: table;
+	}
+
+	.timeline-centered:after {
+		clear: both;
+	}
+
+	.timeline-centered:before, .timeline-centered:after {
+		content: " ";
+		display: table;
+	}
+
+	.timeline-centered:after {
+		clear: both;
+	}
+
+	.timeline-centered:before {
+		content: '';
+		position: absolute;
+		display: block;
+		width: 4px;
+		background: #f5f5f6;
+		left: 50%;
+		top: 20px;
+		bottom: 20px;
+		margin-left: -4px;
+	}
+
+	.timeline-centered .timeline-entry {
+		position: relative;
+		width: 100%;
+		float: right;
+		margin-bottom: 20px;
+		clear: both;
+	}
+
+	.timeline-centered .timeline-entry:before, .timeline-centered .timeline-entry:after {
+		content: " ";
+		display: table;
+	}
+
+	.timeline-centered .timeline-entry:after {
+		clear: both;
+	}
+
+	.timeline-centered .timeline-entry:before, .timeline-centered .timeline-entry:after {
+		content: " ";
+		display: table;
+	}
+
+	.timeline-centered .timeline-entry:after {
+		clear: both;
+	}
+
+	.timeline-centered .timeline-entry.begin {
+		margin-bottom: 0;
+	}
+
+	.timeline-centered .timeline-entry.left-aligned {
+		float: left;
+	}
+
+
+	.timeline-centered .timeline-entry.left-aligned .timeline-entry-inner {
+		margin-left: 0;
+		margin-right: -18px;
+	}
+
+	.timeline-centered .timeline-entry.left-aligned .timeline-entry-inner .timeline-time {
+		left: auto;
+		right: -100px;
+		text-align: left;
+	}
+
+	.timeline-centered .timeline-entry.left-aligned .timeline-entry-inner .timeline-icon {
+		float: right;
+	}
+
+	.timeline-centered .timeline-entry.left-aligned .timeline-entry-inner .timeline-label {
+		margin-left: 0;
+		margin-right: 70px;
+	}
+
+	.timeline-centered .timeline-entry.left-aligned .timeline-entry-inner .timeline-label:after {
+		left: auto;
+		right: 0;
+		margin-left: 0;
+		margin-right: -9px;
+		-moz-transform: rotate(180deg);
+		-o-transform: rotate(180deg);
+		-webkit-transform: rotate(180deg);
+		-ms-transform: rotate(180deg);
+		transform: rotate(180deg);
+	}
+
+	.timeline-centered .timeline-entry .timeline-entry-inner {
+		position: relative;
+		margin-left: -22px;
+	}
+
+	.timeline-centered .timeline-entry .timeline-entry-inner:before, .timeline-centered .timeline-entry .timeline-entry-inner:after {
+		content: " ";
+		display: table;
+	}
+
+	.timeline-centered .timeline-entry .timeline-entry-inner:after {
+		clear: both;
+	}
+
+	.timeline-centered .timeline-entry .timeline-entry-inner:before, .timeline-centered .timeline-entry .timeline-entry-inner:after {
+		content: " ";
+		display: table;
+	}
+
+	.timeline-centered .timeline-entry .timeline-entry-inner:after {
+		clear: both;
+	}
+
+	.timeline-centered .timeline-entry .timeline-entry-inner .timeline-time {
+		position: absolute;
+		left: -100px;
+		text-align: right;
+		padding: 10px;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+
+	.timeline-centered .timeline-entry .timeline-entry-inner .timeline-time > span {
+		display: block;
+	}
+
+	.timeline-centered .timeline-entry .timeline-entry-inner .timeline-time > span:first-child {
+		font-size: 15px;
+		font-weight: bold;
+	}
+
+	.timeline-centered .timeline-entry .timeline-entry-inner .timeline-time > span:last-child {
+		font-size: 12px;
+	}
+
+	.timeline-centered .timeline-entry .timeline-entry-inner .timeline-icon {
+		background: #fff;
+		color: #737881;
+		display: block;
+		width: 40px;
+		height: 40px;
+		-webkit-background-clip: padding-box;
+		-moz-background-clip: padding;
+		background-clip: padding-box;
+		-webkit-border-radius: 20px;
+		-moz-border-radius: 20px;
+		border-radius: 20px;
+		text-align: center;
+		-moz-box-shadow: 0 0 0 5px #f5f5f6;
+		-webkit-box-shadow: 0 0 0 5px #f5f5f6;
+		box-shadow: 0 0 0 5px #f5f5f6;
+		line-height: 40px;
+		font-size: 15px;
+		float: left;
+	}
+
+
+
+	.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label {
+		position: relative;
+		background: #f5f5f6;
+		padding: 1.7em;
+		margin-left: 70px;
+		-webkit-background-clip: padding-box;
+		-moz-background-clip: padding;
+		background-clip: padding-box;
+		-webkit-border-radius: 3px;
+		-moz-border-radius: 3px;
+		border-radius: 3px;
+	}
+
+	.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label:after {
+		content: '';
+		display: block;
+		position: absolute;
+		width: 0;
+		height: 0;
+		border-style: solid;
+		border-width: 9px 9px 9px 0;
+		border-color: transparent #f5f5f6 transparent transparent;
+		left: 0;
+		top: 10px;
+		margin-left: -9px;
+	}
+
+
+	.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label p + p {
+		margin-top: 15px;
+	}
+
+
+
+	.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label h2 a {
+		color: #303641;
+	}
+
+	.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label h2 span {
+		-webkit-opacity: .6;
+		-moz-opacity: .6;
+		opacity: .6;
+		-ms-filter: alpha(opacity=60);
+		filter: alpha(opacity=60);
+	}
+
+</style>

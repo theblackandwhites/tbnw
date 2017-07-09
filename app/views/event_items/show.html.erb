@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @event_item.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @event_item.description %>
+</p>
+
+<p>
+  <strong>Training:</strong>
+  <%= @event_item.training %>
+</p>
+
+<p>
+  <strong>Support:</strong>
+  <%= @event_item.support %>
+</p>
+
+<p>
+  <strong>Color hex:</strong>
+  <%= @event_item.color_hex %>
+</p>
+
+<%= link_to 'Edit', edit_event_item_path(@event_item) %> |
+<%= link_to 'Back', event_items_path %>

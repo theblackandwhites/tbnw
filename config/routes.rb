@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :posts
+  resources :event_items
+  resources :events
+  resources :calenders
   #Devise resources
   devise_for :users, controllers: { registrations: "registrations" }
 

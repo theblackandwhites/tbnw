@@ -4,8 +4,9 @@ class ApplicationController < ActionController::Base
 
   @alladmins = User.where(admin: true).all
   @allusers = User.all
-
   @mymembers = @allusers.count - @alladmins.count
+
+  @latest_post = Calender.last
 
   protected
 

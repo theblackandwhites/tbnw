@@ -25,6 +25,7 @@ gem 'prawn'
 gem 'trix'
 gem 'jquery-turbolinks'
 gem 'rack-host-redirect'
+gem 'chronic'
 
 group :development, :test do
   gem 'byebug'
