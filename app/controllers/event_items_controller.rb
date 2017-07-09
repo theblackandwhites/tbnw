@@ -1,7 +1,7 @@
 class EventItemsController < ApplicationController
   before_action :set_event_item, only: [:show, :edit, :update, :destroy]
-  #before_action :authenticate_user!
-  #load_and_authorize_resource
+  before_action :authenticate_user!
+  load_and_authorize_resource
   
   # GET /event_items
   # GET /event_items.json
