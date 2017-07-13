@@ -71,6 +71,6 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:chronic_string, :calender_id, :event_item_id, :order_number)
+      params.require(:event).permit(:chronic_string, :calender_id, :event_item_id, :order_number, :description, :time)
     end
 end
