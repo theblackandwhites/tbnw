@@ -11,32 +11,32 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :chronic_string %>
     <%= f.date_field :chronic_string %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :time %>
     <%= f.text_field :time %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :event_item_id %>
     <%= f.collection_select :event_item_id, EventItem.all, :id, :title %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :calender_id %>
     <%= f.collection_select :calender_id, Calender.all, :id, :month %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :order_number %>
     <%= f.number_field :order_number %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :description %>
     <%= f.text_field :description %>
   </div>
