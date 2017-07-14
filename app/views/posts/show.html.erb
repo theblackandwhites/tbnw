@@ -20,6 +20,10 @@
         </div>
       </div>
       <div class="col-md-8">
+        <% if @user.avatar? %>
+          <%= cl_image_tag(@post.hero.path, { size: '300x800', crop: :thumb }) %>
+        <% end %>
+
         <img class="img" src="http://res.cloudinary.com/theblackandwhites/image/upload/c_crop,h_300,w_800/<%= @post.hero.path %>" width="100%"/>
         <div style="margin-top: 20px; font-size: 16px;">
           <%= raw @post.description %>
