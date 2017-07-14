@@ -17,9 +17,11 @@
 								</div>
 								<div class="timeline-label" >
 									<h3><%=  event.event_item.title %></h3>
-									<h4><%= Chronic.parse(event.chronic_string, :ambiguous_time_range => :none).strftime("%A %d") %> AT 3:00pm</h4>
+									<h4><%= Chronic.parse(event.chronic_string, :ambiguous_time_range => :none).strftime("%A %d") %> at <%= event.time %></h4>
 									<div style="margin-top: 20px;">
-										<blockquote style="border-left:5px solid #<%= event.event_item.color_hex %>; font-size: 14px;"><%=  event.event_item.description %></blockquote>
+										<blockquote style="border-left:5px solid #<%= event.event_item.color_hex %>; font-size: 14px;"><%=  event.event_item.description %>
+											<p><%= event.description? %></p>
+										</blockquote>
 									</div>
 
 									<%= link_to "ACCESS EVERYTHING FOR JUST $1", new_user_registration_path, class: "btn btn-rose" %>
