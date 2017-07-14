@@ -5,7 +5,7 @@
       <div class="card-image">
         <div class="front">
         <% if post.thumb? %>
-          <%= cl_image_tag(post.thumb.path, { size: '700x600', crop: :thumb, gravity: :face }) %>
+          <%= cl_image_tag(post.thumb.path, { size: '700x600', crop: :thumb, gravity: :face, width: "100%" }) %>
         <% end %>
         </div>
         
