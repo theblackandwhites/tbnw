@@ -12,7 +12,6 @@ gem 'devise'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem "font-awesome-rails"
 gem 'material_icons'
-gem 'redis'
 gem 'figaro'
 gem 'stripe'
 gem 'stripe_event'

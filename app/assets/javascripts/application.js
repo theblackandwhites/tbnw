@@ -21,7 +21,6 @@
 //= require bootstrap-datetimepicker
 //= require bootstrap-selectpicker
 //= require bootstrap-tagsinput
-//= require cable
 //= require jasny-bootstrap.min
 //= require jquery.flexisel
 //= require material.min
