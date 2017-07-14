@@ -4,8 +4,12 @@
     <div class="row">
       <div class="col-md-9">
         <div style="margin-bottom: 40px; font-size: 16px;">
-           <h2 class="title" style="margin-bottom: 0; padding-bottom: 0">Take a look at our <%= @calender.month %> calender</h2>
+           <h2 class="title" style="margin-bottom: 0; padding-bottom: 0">Take a look at our <%= @calender.month %> calendar</h2>
           <p>Here you'll find all the training and support touch points for the month of <%= @calender.month %>. All members get exclusive access to ALL touch points. Email reminders are sent before each event takes place so you're always in the loop. </p>
+
+          <h3>Coming up at The Black &amp; Whites</h3>
+          <%= @calender.description %>
+
         </div>  
         <div class="timeline-centered">
           <% @events.order(chronic_string: :asc).each do |event| %>
@@ -19,7 +23,9 @@
                   <h3><%=  event.event_item.title %></h3>
                   <h4><%= Chronic.parse(event.chronic_string, :ambiguous_time_range => :none).strftime("%A %d") %> at <%= event.time %></h4>
                   <div style="margin-top: 20px;">
-                    <blockquote style="border-left:5px solid #<%= event.event_item.color_hex %>; font-size: 14px;"><%=  event.event_item.description %></blockquote>
+                    <blockquote style="border-left:5px solid #<%= event.event_item.color_hex %>; font-size: 14px;"><%=  event.event_item.description %>
+                      <p><%= event.description? %></p>
+                    </blockquote>
                   </div>
 
                   <%= link_to "ACCESS EVERYTHING FOR JUST $1", new_user_registration_path, class: "btn btn-rose" %>
