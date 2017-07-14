@@ -8,7 +8,7 @@
 					<p>Here you'll find all the training and support touch points for the month of <%= @calender.month %>. All members get exclusive access to ALL touch points. Email reminders are sent before each event takes place so you're always in the loop. </p>
 
 					<h3>Coming up at The Black &amp; Whites</h3>
-					<%= @calender.description %>
+					<%= @calender.intro %>
 				</div>	
 				<div class="timeline-centered">
 					<% @events.order(order_number: :asc).each do |event| %>
