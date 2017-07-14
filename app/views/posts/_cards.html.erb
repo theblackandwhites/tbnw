@@ -4,9 +4,12 @@
     <div class="rotating-card-container">
       <div class="card-image">
         <div class="front">
+        <% if @user.avatar? %>
+          <%= cl_image_tag(@post.thumb.path, { size: '600x700', crop: :thumb, gravity: :face }) %>
+        <% end %>
         </div>
-
-        <div class="back back-background">
+        
+        <div class="back back-background>
           <div class="card-content">
             <h5 class="card-title"></h5>
             <div class="footer text-center">
