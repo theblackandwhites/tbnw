@@ -1,6 +1,6 @@
 require_relative 'boot'
 
-require 'rails/all'
+require 'rails'
 require "attachinary/orm/active_record" # active_record or mongoid
 
 # Require the gems listed in Gemfile, including any gems
