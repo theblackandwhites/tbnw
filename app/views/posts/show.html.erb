@@ -21,7 +21,7 @@
       </div>
       <div class="col-md-8">
         <% if @post.thumb? %>
-          <%= cl_image_tag(@post.hero.path, { size: '300x800', crop: :thumb }) %>
+          <%= cl_image_tag(@post.hero.path, { size: '800x300', crop: :thumb }) %>
         <% end %>
 
         
